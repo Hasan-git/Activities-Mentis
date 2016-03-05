@@ -1,0 +1,146 @@
+﻿body {
+    font-family: Roboto Condensed;
+}
+.title {
+    font-family: patua one;
+}
+.mainContainer {
+        padding: 0;
+    border: 20px solid #000;
+    border-radius: 10px;
+    width: 98%;
+    min-height: 480px;
+    height: 500px;
+}
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+.col-vertical-center {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.form-box {
+    margin-top: 35px;
+}
+.form-top {
+    overflow: hidden;
+    padding: 0 25px 0px 25px;
+    background: #fff;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    text-align: left;
+    border: 1px solid #F3F0F0;
+    border-bottom: 0;
+}
+.form-bottom {
+    padding: 25px 25px 30px 25px;
+    background: #F5F4F4;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    text-align: left;
+}
+.form-top-left {
+    float: left;
+    width: 75%;
+    padding-top: 25px;
+}
+.form-top-right {
+    float: left;
+    width: 25%;
+    padding-top: 5px;
+    font-size: 66px;
+    color: #ddd;
+    line-height: 100px;
+    text-align: right;
+}
+.pointer {
+    cursor: pointer;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+.m-b-none {
+  margin-bottom: 0;
+}
+.m-b-xxs {
+  margin-bottom: 1px;
+}
+.m-b-xs {
+  margin-bottom: 5px;
+}
+.m-b-sm {
+  margin-bottom: 10px;
+}
+.m-b {
+  margin-bottom: 15px;
+}
+.m-b-md {
+  margin-bottom: 20px;
+}
+.m-b-lg {
+  margin-bottom: 30px;
+}
+.m-b-xl {
+  margin-bottom: 40px;
+}
+.m-t-none {
+  margin-top: 0;
+}
+.m-t-xxs {
+  margin-top: 1px;
+}
+.m-t-xs {
+  margin-top: 5px;
+}
+.m-t-sm {
+  margin-top: 10px;
+}
+.m-t {
+  margin-top: 15px;
+}
+.m-t-md {
+  margin-top: 20px;
+}
+.m-t-lg {
+  margin-top: 30px;
+}
+.m-t-xl {
+  margin-top: 40px;
+}
+.p-xxs {
+  padding: 5px;
+}
+.p-xs {
+  padding: 10px;
+}
+.p-sm {
+  padding: 15px;
+}
+.p-m {
+  padding: 20px;
+}
+.p-md {
+  padding: 25px;
+}
+.p-lg {
+  padding: 30px;
+}
+.p-xl {
+  padding: 40px;
+}
+.p-sides-xs {
+    padding: 0 5px;
+}
+.b-l-grey {
+    border-left: 1px solid #ccc;
+}

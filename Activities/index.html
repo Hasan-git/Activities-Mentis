@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html ng-app="active">
+<head>
+    <title>Activities</title>
+    <meta charset="utf-8"/>
+
+
+
+    <!-- Font Awesome -->
+    <link href="Content/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Bootstrap and Fonts -->
+    <link href="Content/bootstrap.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Righteous|Patua+One|Lobster|Lobster+Two|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <!-- Custom StyleSheet -->
+    <link href="Content/style.css" rel="stylesheet" />
+</head>
+<body ng-controller="MainCtrl">
+
+
+    <!-- Container Info  -->
+<div ng-include="'views/common/info.html'"></div>
+
+    <!-- Device Container-->
+<div class="container text-center mainContainer" id="mainContainer" resize>
+    
+    <!-- Header -->
+    <div ng-include="'views/common/header.html'"></div>
+
+    <!-- Body -->
+    <div ui-view></div>
+</div>
+
+
+
+<!-- jQuery -->
+<script src="Scripts/jquery-1.9.0.min.js"></script>
+
+<!-- Angular scripts-->
+<script src="Scripts/angular.min.js"></script>
+<script src="js/angular-ui-router.js"></script>
+<script src="Scripts/angular-animate.min.js"></script>
+<script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+
+<!-- Angular Dependiences -->
+
+
+<!-- Anglar App Script -->
+<script src="js/app.js"></script>
+<script src="js/config.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/controllers.js"></script>
+
+<script src="js/Repositories/usersRepository.js"></script>
+<script src="js/services.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".mainContainer").innerWidth();
+        $(".mainContainer").innerHeight();
+
+    });
+</script>
+</body>
+</html>
