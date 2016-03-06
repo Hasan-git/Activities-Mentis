@@ -1,8 +1,9 @@
 ﻿
 (function () {
     angular.module('active', [
-        'ui.router', // Routing
-        'ui.bootstrap' // Bootstrap
+        'LocalForageModule',    // Offline Storage
+        'ui.router',            // Routing
+        'ui.bootstrap'          // Bootstrap
     ]);
 
 })();

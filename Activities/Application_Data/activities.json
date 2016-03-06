@@ -1,0 +1,12 @@
+﻿[
+  {
+    "activityId": 1,
+    "title": "Football",
+    "category": "sport"
+  },
+  {
+    "activityId": 2,
+    "title": "Basket",
+    "category": "sport"
+  }
+]

@@ -1,35 +1,41 @@
 ﻿
-function loginService(usersRepo) {
+function loginService(usersRepo,$q){
 
     var check = function (username, password) {
 
-        var index=null;
+        var index = null;
+        var deferred = $q.defer();
         var users = usersRepo.getAllUsers();
-        if (users) {
-            angular.forEach(users, function (value, key) {
-                if (value.username === username && value.password === password) {
-                    index = key;
-                }
-            });
-        }
-        return index;
+        users.then(function (object){
+            if (object) {
+                angular.forEach(object, function (identity, key) {
+                    if (identity.username === username && identity.password === password) {
+                        deferred.resolve({ username: identity.username, id: identity.userId });
+                    }
+                });
+                deferred.reject('Wrong username or password');
+            }
+        },function(error) {
+            deferred.reject();
+        });
+        return deferred.promise;
     }
     return {
         check: check
     }
-}
+}// End Login Service
 
 
 function currentUser() {
     var profile = {
         isLoggedIn: false,
         username: "",
-        index: ""
+        id: ""
     };
 
-    var setProfile = function (username, index) {
+    var setProfile = function (username, id) {
         profile.username = username;
-        profile.index = index;
+        profile.id = id;
         profile.isLoggedIn = true;
     };
 
@@ -41,10 +47,10 @@ function currentUser() {
         setProfile: setProfile,
         getProfile: getProfile
     }
-}
+}//End currentUser
 
 
 angular
 .module('active')
 .factory('currentUser', currentUser)
-.factory('loginService', ['usersRepo', loginService]);
+.factory('loginService', ['usersRepo','$q', loginService]);

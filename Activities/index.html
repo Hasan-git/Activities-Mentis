@@ -16,7 +16,7 @@
     <!-- Custom StyleSheet -->
     <link href="Content/style.css" rel="stylesheet" />
 </head>
-<body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl" class="noselect">
 
 
     <!-- Container Info  -->
@@ -29,7 +29,7 @@
     <div ng-include="'views/common/header.html'"></div>
 
     <!-- Body -->
-    <div ui-view></div>
+    <div class="p-sm uiview" ui-view></div>
 </div>
 
 
@@ -43,6 +43,11 @@
 <script src="Scripts/angular-animate.min.js"></script>
 <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
 
+<!-- Offline Storage -->
+<script src="Scripts/localforage/localforage.js"></script>
+<script src="Scripts/localforage/angular-localForage.min.js"></script>
+
+
 <!-- Angular Dependiences -->
 
 
@@ -52,6 +57,7 @@
 <script src="js/directives.js"></script>
 <script src="js/controllers.js"></script>
 
+<script src="js/Repositories/dataInitializer.js"></script>
 <script src="js/Repositories/usersRepository.js"></script>
 <script src="js/services.js"></script>
 

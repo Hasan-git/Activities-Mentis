@@ -21,29 +21,43 @@ function MainCtrl($scope) {
     }
 }//End MainCtrl
 
-function login($scope, loginService, $location, currentUser, $state) {
+function login($scope, loginService, $location, currentUser, $state, usersRepo, $localForage) {
 
-    $scope.username = "user";
+  
+    $scope.username = "json";
     $scope.password = "abc123";
     $scope.submitLogin = function () {
         var username = $scope.username;
         var password = $scope.password;
-
-        var index = loginService.check(username, password);
-
-        if (index === null) {
-            //notification wrong password username
-            alert("Wrong username or password");
-        } else {
-            currentUser.setProfile(username, index);
-            //go to HomePage
+        
+        
+        loginService.check(username, password).then(function(data) {
+            currentUser.setProfile(data.username, data.id);
             $state.go('inner.main_page');
-        }
+        }, function(error) {
+            alert(error);
+        });
+
+        //if (index === null) {
+        //    //notification wrong password username
+        //    alert("Wrong username or password");
+        //} else {
+        //    currentUser.setProfile(username, index);
+        //    //go to HomePage
+        //    $state.go('inner.main_page');
+        //}
     }
 }//End Login
 
 function mainPage($scope) {
 
+}
+
+function calendar($scope) {
+    $scope.today = function () {
+        $scope.dt = new Date();
+    };
+    $scope.today();
 }
 
 

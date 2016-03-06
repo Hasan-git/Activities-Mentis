@@ -1,4 +1,10 @@
-﻿function config($stateProvider, $urlRouterProvider) {
+﻿function config($stateProvider, $urlRouterProvider, $localForageProvider) {
+
+    $localForageProvider.config({
+        name: 'active', // name of the database and prefix for your data
+        driver: 'localStorageWrapper'
+    });
+
     $urlRouterProvider.otherwise("/home/login");
     $stateProvider
 
@@ -22,6 +28,11 @@
             templateUrl: "views/main_page.html",
             controller: mainPage
         })
+        .state('inner.calendar', {
+            url: "/calendar",
+            templateUrl: "views/calendar.html",
+            controller: calendar
+        })
     ;
 
 
@@ -31,7 +42,9 @@
 angular
     .module('active')
     .config(config)
-    .run(function ($rootScope, $state,$location,currentUser) {
+    .run(function ($rootScope, $state, $location, currentUser, dataInitializer) {
+
+
         $rootScope.$state = $state;
         $rootScope.offline = false;
         $rootScope.$on('$stateChangeStart', function (event) {
@@ -41,9 +54,20 @@ angular
             } else {
                 $rootScope.offline = true;
             }
-                
         });
 
-       
+        //dataInitializer.destroyRepo();
 
-    });
+        dataInitializer.checkRepo().then(function(data) {
+            console.log( data);
+        },function(err) {
+            console.log(err);
+            dataInitializer.initialize().then(function (success) {
+                console.log(success);
+            }, function (error) {
+                console.log(error);
+            });
+        });
+        
+
+    });// End Run
