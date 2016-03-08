@@ -10,7 +10,7 @@ function loginService(usersRepo,$q){
             if (object) {
                 angular.forEach(object, function (identity, key) {
                     if (identity.username === username && identity.password === password) {
-                        deferred.resolve({ username: identity.username, id: identity.userId });
+                        deferred.resolve({ username: identity.username, id: identity.userId,name:identity.name });
                     }
                 });
                 deferred.reject('Wrong username or password');
@@ -30,12 +30,14 @@ function currentUser() {
     var profile = {
         isLoggedIn: false,
         username: "",
+        name: "",
         id: ""
     };
 
-    var setProfile = function (username, id) {
+    var setProfile = function (username, id,name) {
         profile.username = username;
         profile.id = id;
+        profile.name = name;
         profile.isLoggedIn = true;
     };
 

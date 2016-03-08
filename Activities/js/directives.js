@@ -15,6 +15,8 @@ myapp.directive('resize', function ($window) {
         }
         w.on('resize', function () {
             resized();
+            var deviceHeight = $(window).height();
+            $('.mainContainer').css({ 'height': (deviceHeight) + 'px' });
         });
 
        // //Testing 

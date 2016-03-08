@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
 
 
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Font Awesome -->
     <link href="Content/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
 
@@ -20,7 +20,7 @@
 
 
     <!-- Container Info  -->
-<div ng-include="'views/common/info.html'"></div>
+<!--<div ng-include="'views/common/info.html'"></div>-->
 
     <!-- Device Container-->
 <div class="container text-center mainContainer" id="mainContainer" resize>
@@ -29,7 +29,7 @@
     <div ng-include="'views/common/header.html'"></div>
 
     <!-- Body -->
-    <div class="p-sm uiview" ui-view></div>
+    <div class="uiview" ui-view></div>
 </div>
 
 
@@ -58,6 +58,7 @@
 <script src="js/controllers.js"></script>
 
 <script src="js/Repositories/dataInitializer.js"></script>
+<script src="js/Repositories/activitiesRepository.js"></script>
 <script src="js/Repositories/usersRepository.js"></script>
 <script src="js/services.js"></script>
 

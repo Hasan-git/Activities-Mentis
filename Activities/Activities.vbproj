@@ -108,6 +108,7 @@
     <Content Include="js\controllers.js" />
     <Content Include="js\directives.js" />
     <Content Include="js\Repositories\dataInitializer.js" />
+    <Content Include="js\Repositories\activitiesRepository.js" />
     <Content Include="js\Repositories\usersRepository.js" />
     <Content Include="js\services.js" />
     <Content Include="Scripts\angular-animate.js" />

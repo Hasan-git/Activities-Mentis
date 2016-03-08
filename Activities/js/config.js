@@ -44,10 +44,24 @@ angular
     .config(config)
     .run(function ($rootScope, $state, $location, currentUser, dataInitializer) {
 
-
+        
         $rootScope.$state = $state;
         $rootScope.offline = false;
-        $rootScope.$on('$stateChangeStart', function (event) {
+        $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
+            
+            $rootScope.previousState_name = from.name;
+            $rootScope.previousState_params = fromParams;
+
+            if (to.name == "inner.main_page") {
+                $rootScope.back = false;
+            } else {
+                $rootScope.back = true;
+                $rootScope.previousState = from.name;
+                $rootScope.back = function () {
+                    $state.go($rootScope.previousState_name, $rootScope.previousState_params);
+                };
+            }
+
             var user = currentUser.getProfile();
             if (user.isLoggedIn === false) {
                 $location.path('home/login');
@@ -68,6 +82,9 @@ angular
                 console.log(error);
             });
         });
+        var deviceHeight = $(window).height();
+        $('.mainContainer').css({ 'height': (deviceHeight) + 'px' });
+
         
 
     });// End Run
