@@ -76,6 +76,9 @@ function calendar($scope, activitiesRepo) {
     };
     $scope.today();
 }
+function activitiesExposition($scope) {
+    $scope.active = "Am here";
+}
 
 
 angular
@@ -83,4 +86,5 @@ angular
     .controller('login',login)
     .controller('MainCtrl', MainCtrl)
     .controller('mainPage', mainPage)
+    .controller('activitiesExposition', activitiesExposition)
     ;

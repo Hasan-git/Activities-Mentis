@@ -934,7 +934,12 @@
     <Content Include="Scripts\localforage\angular-localForage.min.js" />
     <Content Include="Scripts\localforage\localforage.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="views\activities.html" />
+    <Content Include="views\activitiesExposition.html" />
+    <Content Include="views\activityDetails.html" />
     <Content Include="views\calendar.html" />
+    <Content Include="views\centerDetails.html" />
+    <Content Include="views\centers.html" />
     <Content Include="views\common\content.html" />
     <Content Include="views\common\header.html" />
     <Content Include="views\common\info.html" />

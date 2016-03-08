@@ -33,6 +33,30 @@
             templateUrl: "views/calendar.html",
             controller: calendar
         })
+        .state('inner.activitiesExposition', {
+            url: "/activitiesExposition",
+            templateUrl: "views/activitiesExposition.html",
+            controller: activitiesExposition
+            
+        })
+        .state('inner.activitiesExposition.centers', {
+            url: "/activitiesExposition",
+            templateUrl: "views/centers.html"
+
+        })
+        .state('inner.activitiesExposition.activities', {
+            url: "/activities",
+            templateUrl: "views/activities.html"
+
+        })
+        .state('inner.centerDetails', {
+            url: "/centerDetails",
+            templateUrl: "views/centerDetails.html"
+        })
+        .state('inner.activityDetails', {
+            url: "/activityDetails",
+            templateUrl: "views/activityDetails.html"
+        })
     ;
 
 
