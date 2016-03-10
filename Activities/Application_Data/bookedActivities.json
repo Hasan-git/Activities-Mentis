@@ -1,0 +1,23 @@
+﻿[
+  {
+    "purchaseId": 1,
+    "userId": 1,
+    "activityId": 1,
+    "activityTitle": 1,
+    "activityTime": "9pm-10pm",
+    "activityAttendStatus": "Recuring/weekly until 02.08.16",
+    "activityattendDays": "Every Day",
+    "reservationDate": "03-03-2016"
+  },
+  {
+    "purchaseId": 2,
+    "userId": 1,
+    "activityId": 1,
+    "activityTitle": 1,
+    "activityTime": "9pm-10pm",
+    "activityAttendStatus": "Recuring/weekly until 02.08.16",
+    "activityattendDays": "Every Day",
+    "reservationDate": "03-03-2016"
+  }
+ 
+]

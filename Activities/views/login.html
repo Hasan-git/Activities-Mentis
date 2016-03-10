@@ -10,7 +10,8 @@
                     <div class="form-top-right">
                         <i class="fa fa-lock"></i>
                     </div>
-            </div>
+                </div>
+               
             </div>
             <div class="form-bottom">
                 <div class="col-sm-10 col-centered">
@@ -19,13 +20,13 @@
                             <label class="" for="username">Username</label>
                             <input type="text" name="username" ng-model="username" placeholder="Username..." class="form-username form-control" id="username" required ng-maxlength="30" ng-minlength="3">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" >
                             <label class="" for="password">Password</label>
                             <input type="password" name="password" ng-model="password" placeholder="Password..." class="form-password form-control" id="password" required ng-maxlength="30" ng-minlength="3">
                         </div>
                         <button type="button" class="btn btn-success btn-block" ng-click="submitLogin()" ng-disabled="form.$invalid">Sign in!</button>
                         <div class="text-center" style="margin-top: 14px; font-size: 11px;">
-                            <a class="pointer">Forget Password ?</a>
+                            <a class="pointer" ng-click="destroyDataBase()">Forget Password ?</a>
                         </div>
                     </form>
                 </div>

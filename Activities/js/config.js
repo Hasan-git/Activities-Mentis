@@ -41,12 +41,14 @@
         })
         .state('inner.activitiesExposition.centers', {
             url: "/activitiesExposition",
-            templateUrl: "views/centers.html"
+            templateUrl: "views/centers.html",
+            controller: centers
 
         })
         .state('inner.activitiesExposition.activities', {
             url: "/activities",
-            templateUrl: "views/activities.html"
+            templateUrl: "views/activities.html",
+            controller: activitiesList
 
         })
         .state('inner.centerDetails', {
@@ -54,9 +56,56 @@
             templateUrl: "views/centerDetails.html"
         })
         .state('inner.activityDetails', {
-            url: "/activityDetails",
-            templateUrl: "views/activityDetails.html"
+            url: "/activityDetails/:activityId",
+            templateUrl: "views/activityDetails.html",
+            controller: activityDetails,
+            resolve: {
+                resolvedActivty: function (activitiesRepo, $stateParams) {
+                    if ($stateParams.activityId != null || $stateParams.activityId !== 0) {
+                        var id = $stateParams.activityId;
+                        return activitiesRepo.getActivity(id).then(function (data) {
+                            return data;
+                        });
+                    } else {
+                        return null;
+                    }
+                }
+            }
         })
+        .state('inner.bookinglicence', {
+            url: "/bookinglicence/:activityId",
+            templateUrl: "views/bookinglicence.html",
+            controller: bookingLicence,
+            resolve: {
+                resolvedActivtyz: function (activitiesRepo, $stateParams) {
+                    if ($stateParams.activityId != null || $stateParams.activityId !== 0) {
+                        var id = $stateParams.activityId;
+                        return activitiesRepo.getActivity(id).then(function (data) {
+                            return data;
+                        });
+                    } else {
+                        return null;
+                    }
+                }
+            }
+        })
+    .state('inner.bookingEnrollment', {
+        url: "/bookingEnrollment/:activityId",
+        templateUrl: "views/bookingEnrollment.html",
+        controller: bookingEnrollment,
+        resolve: {
+            resolvedActivtyEnrollment: function (activitiesRepo, $stateParams) {
+                if ($stateParams.activityId != null || $stateParams.activityId !== 0) {
+                    var id = $stateParams.activityId;
+                    return activitiesRepo.getActivity(id).then(function (data) {
+                        return data;
+                    });
+                } else {
+                    return null;
+                }
+            }
+        }
+    })
     ;
 
 
@@ -75,14 +124,45 @@ angular
             
             $rootScope.previousState_name = from.name;
             $rootScope.previousState_params = fromParams;
+            
 
             if (to.name == "inner.main_page") {
                 $rootScope.back = false;
             } else {
                 $rootScope.back = true;
-                $rootScope.previousState = from.name;
+                var a;
+                var params;
+                switch (to.name) {
+                    case 'inner.calendar':
+                        a = from.name;
+                        params = fromParams;
+                        break;
+                    case 'inner.activitiesExposition':
+                        a = "inner.main_page";
+                        break;
+                    case 'inner.activitiesExposition.centers':
+                        a = "inner.main_page";
+                        break;
+                    case 'inner.centerDetails':
+                        a = "inner.activitiesExposition";
+                        break;
+                    case 'inner.activitiesExposition.activities':
+                        a = "inner.main_page";
+                        break;
+                    case 'inner.activityDetails':
+                        a = "inner.activitiesExposition.activities";
+                        params = toParams;
+                        break;
+                    case 'inner.bookinglicence':
+                        a = "inner.activityDetails";
+                        params = toParams;
+                        break;
+                    default:
+                        a = from.name;
+                        params = toParams;
+                    }
                 $rootScope.back = function () {
-                    $state.go($rootScope.previousState_name, $rootScope.previousState_params);
+                    $state.go(a, params);
                 };
             }
 
@@ -94,7 +174,7 @@ angular
             }
         });
 
-        //dataInitializer.destroyRepo();
+        $rootScope.destroyDataBase = function() { dataInitializer.destroyRepo(); };
 
         dataInitializer.checkRepo().then(function(data) {
             console.log( data);

@@ -1,12 +1,41 @@
 ﻿[
   {
     "activityId": 1,
-    "title": "Football",
-    "category": "sport"
+    "centerName": "Holborn Community Association",
+    "street": "7 Phethean Street london BL4 7LJ",
+    "phone": 40759123123,
+    "latLng": {
+      "latitude": 53.555072,
+      "longitude": -2.403002
+    },
+    "price": 0,
+    "courseType": "Session",
+    "attendStatus": "Recuring/weekly until 02.08.16",
+    "attendDays":"Every Day",
+    "dropin": "Drop-in accepted",
+    "title": "Crafts",
+    "startDate": "2016-04-07",
+    "time": "1pm - 3:30pm ",
+     "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id. "
   },
   {
     "activityId": 2,
-    "title": "Basket",
-    "category": "sport"
+    "centerId": 1,
+    "centerName": "Holborn Community Association",
+    "street": "10 Malthouse Lane PE26 1SQ",
+    "phone": 40759123123,
+    "latLng": {
+      "latitude": 52.441774,
+      "longitude": -0.120275
+    },
+    "price": 6,
+    "courseType": "Session",
+    "attendStatus": "Recuring/weekly until 02.08.16",
+    "attendDays":"Mon Fri",
+    "dropin": "Drop-in accepted",
+    "title": "Computer Support",
+    "startDate": "2016-04-07",
+    "time": "10am - 12am  ",
+    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   }
 ]

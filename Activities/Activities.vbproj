@@ -99,6 +99,7 @@
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\toaster-0.4.16.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
@@ -107,10 +108,12 @@
     <Content Include="js\config.js" />
     <Content Include="js\controllers.js" />
     <Content Include="js\directives.js" />
+    <Content Include="js\Repositories\bookedActivities.js" />
     <Content Include="js\Repositories\dataInitializer.js" />
     <Content Include="js\Repositories\activitiesRepository.js" />
     <Content Include="js\Repositories\usersRepository.js" />
     <Content Include="js\services.js" />
+    <Content Include="Scripts\plugin\toaster-0.4.16.min.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -927,6 +930,7 @@
     <Content Include="Application_Data\users.json" />
     <Content Include="Application_Data\activities.json" />
     <Content Include="Application_Data\purchasedActivities.json" />
+    <Content Include="Application_Data\bookedActivities.json" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
@@ -937,6 +941,8 @@
     <Content Include="views\activities.html" />
     <Content Include="views\activitiesExposition.html" />
     <Content Include="views\activityDetails.html" />
+    <Content Include="views\bookingEnrollment.html" />
+    <Content Include="views\bookinglicence.html" />
     <Content Include="views\calendar.html" />
     <Content Include="views\centerDetails.html" />
     <Content Include="views\centers.html" />

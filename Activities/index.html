@@ -6,8 +6,14 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <!-- Font Awesome -->
     <link href="Content/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Toaster Style -->
+    <link href="Content/toaster-0.4.16.css" rel="stylesheet" />
+
+    <link href="Content/style.css" rel="stylesheet"/>
 
     <!-- Bootstrap and Fonts -->
     <link href="Content/bootstrap.css" rel="stylesheet"/>
@@ -18,7 +24,7 @@
 </head>
 <body ng-controller="MainCtrl" class="noselect">
 
-
+    <toaster-container toaster-options="{'close-button': true,'body-output-type': 'trustedHtml','animation-class': 'toast-center'}"></toaster-container>
     <!-- Container Info  -->
 <!--<div ng-include="'views/common/info.html'"></div>-->
 
@@ -47,9 +53,11 @@
 <script src="Scripts/localforage/localforage.js"></script>
 <script src="Scripts/localforage/angular-localForage.min.js"></script>
 
+<!-- Plugin -->
+    
 
 <!-- Angular Dependiences -->
-
+    <script src="Scripts/plugin/toaster-0.4.16.min.js"></script>
 
 <!-- Anglar App Script -->
 <script src="js/app.js"></script>
@@ -57,6 +65,7 @@
 <script src="js/directives.js"></script>
 <script src="js/controllers.js"></script>
 
+<script src="js/Repositories/bookedActivities.js"></script>
 <script src="js/Repositories/dataInitializer.js"></script>
 <script src="js/Repositories/activitiesRepository.js"></script>
 <script src="js/Repositories/usersRepository.js"></script>
