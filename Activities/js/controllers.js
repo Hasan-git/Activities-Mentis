@@ -115,13 +115,93 @@ function bookingLicence($scope, $rootScope, resolvedActivtyz, bookedActivitiesRe
         }
     }
     $scope.calling = function() {
-        toaster.pop('info', "Notification", "<i class='fa fa-phone'>&nbsp;&nbsp;</i>Calling ...&nbsp; <i class='fa fa-spinner fa-pulse'></i>", 6000);
+        toaster.pop('info', "Notification", "<i class='fa fa-phone'>&nbsp;&nbsp;</i>Calling ...&nbsp; <i class='fa fa-spinner fa-pulse'></i>", 3000);
     }
 
 }
 function bookingEnrollment($scope, resolvedActivtyEnrollment,toaster) {
     toaster.pop('success', "Notification", "Activity booked successfully", 4000);
     $scope.enrolledActivity = resolvedActivtyEnrollment;
+}
+function map($scope,toaster) {
+
+    
+        toaster.pop('wait', "Notification", "Getting locations ", 3000);
+        
+                var defaultLocation = {
+                    latitude: 51.5181222,
+                    longitude: -0.0727583
+                };
+    
+    function initMap() {
+
+        var geocoder = new google.maps.Geocoder;
+        //current Position
+        navigator.geolocation.getCurrentPosition(function (pos) {
+            console.log(pos.coords);
+            var lat = pos.coords.latitude;
+            var lng = pos.coords.longitude;
+            var latlng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+            geocoder.geocode({ 'location': latlng }, function (results, status) {
+                
+                if (status === google.maps.GeocoderStatus.OK) {
+                    var length = results.length-1;
+                    if (results) {
+                        var country = results[length].formatted_address;
+                        if (country === "United Kingdom"){
+                            defaultLocation.latitude = lat;
+                            defaultLocation.longitude = lng;
+                            alert("we are in UK");
+                            
+                        }else {
+                            alert("You are not located in United Kingdom , so your location will be considered in UK");
+                        }
+                    } 
+                } else {
+                    alert('Geocoder failed due to: ' + status);
+                }
+            });
+        }, function (error) {
+            alert('Unable to get location: ' + error.message);
+        });
+
+
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 7,
+            center: { lat: defaultLocation.latitude, lng: defaultLocation.longitude }
+        });
+        
+        directionsDisplay.setMap(map);
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+        var onChangeHandler = function () {
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+    }
+
+    initMap();
+    
+    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+            origin: new google.maps.LatLng(defaultLocation.latitude, defaultLocation.longitude),
+            destination: new google.maps.LatLng(51.5510106, -0.1853682),
+            travelMode: google.maps.TravelMode.DRIVING
+        }, function (response, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
+    }
+
+    
+    
+
+
+
 }
 
 angular
@@ -130,6 +210,7 @@ angular
     .controller('MainCtrl', MainCtrl)
     .controller('mainPage', mainPage)
     .controller('centers', centers)
+    .controller('map', map)
     .controller('activitiesList', activitiesList)
     .controller('activityDetails', activityDetails)
     .controller('bookingLicence', bookingLicence)

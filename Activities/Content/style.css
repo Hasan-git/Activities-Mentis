@@ -264,3 +264,19 @@
         line-height: 16px;
     }
     }
+
+/*map */
+
+            #map-canavas {
+				height: 400px;
+				width:700px;
+				border: 1px solid #ccc;
+			}
+			#map {
+		        height: 100%;
+		    }
+			.e {
+				height: 400px;
+				width:700px;
+				border: 1px solid #ccc;
+			}

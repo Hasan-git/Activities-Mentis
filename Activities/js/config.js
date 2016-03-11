@@ -37,19 +37,16 @@
             url: "/activitiesExposition",
             templateUrl: "views/activitiesExposition.html",
             controller: activitiesExposition
-            
         })
         .state('inner.activitiesExposition.centers', {
             url: "/activitiesExposition",
             templateUrl: "views/centers.html",
             controller: centers
-
         })
         .state('inner.activitiesExposition.activities', {
             url: "/activities",
             templateUrl: "views/activities.html",
             controller: activitiesList
-
         })
         .state('inner.centerDetails', {
             url: "/centerDetails",
@@ -106,6 +103,11 @@
             }
         }
     })
+    .state('inner.map', {
+        url: "/map",
+        templateUrl: "views/map.html",
+        controller: map
+    })
     ;
 
 
@@ -156,6 +158,10 @@ angular
                     case 'inner.bookinglicence':
                         a = "inner.activityDetails";
                         params = toParams;
+                        break;
+                    case 'inner.map':
+                        a = from.name;
+                        params = fromParams;
                         break;
                     default:
                         a = from.name;
