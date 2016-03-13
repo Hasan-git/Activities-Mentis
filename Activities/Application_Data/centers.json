@@ -1,0 +1,46 @@
+﻿[
+  {
+    "centerId": 1,
+    "centerName": "Holborn Community Association",
+    "street": "35 Emerald Street London WC1N 3QW",
+    "phone": 40759123123,
+    "latLng": {
+      "latitude": 51.5739327,
+      "longitude": -0.3438503
+    },
+    "providing": "Activities/Sessions",
+    "time": "10:00 - 18:30pm",
+    "logo": "../img/holborn.png",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id. "
+  },
+  {    
+    "centerId": 2,
+    "centerName": "Castlehaven Community Centre",
+    "street": "21 Castlehaven Rd, London NW1 8RU",
+    "phone": 442074853386,
+    "latLng": {
+      "latitude": 51.5279753,
+      "longitude": -0.3314584
+    },
+    "providing": "Activities/Sessions",
+    "courseType": "Session",
+    "time": "10:00 - 18:30pm",
+    "logo": "../img/castle.png",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
+  },
+  {    
+    "centerId": 3,
+    "centerName": "Kentish Town Community Centre",
+    "street": "17 Busby Place London NW5 2SP",
+    "phone": 2074823212,
+    "latLng": {
+      "latitude": 51.5128059,
+      "longitude": -0.4298734
+    },
+    "providing": "Activities/Sessions",
+    "courseType": "Session",
+    "time": "10:00 - 18:30pm",
+    "logo": "../img/kentish.png",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
+  }
+]

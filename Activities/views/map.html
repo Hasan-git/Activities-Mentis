@@ -1,9 +1,67 @@
-﻿<div class="container-fluid p-t-md">
-    <div class="row p-t-xxs">
+﻿<div class="container-fluid p-t-xs">
+    <div class="row ">
         <div class="col-sm-10 col-centered">
+            <div class="col-xs-12 p-xs" style="border: 1px solid #e6e6fa;">
+                <div class="col-xs-10 col-centered">
+                        <select id="mode" class="form-control" ng-model="travelMode">
+                            <option value="DRIVING" selected >Driving</option>
+                            <option value="WALKING">Walking</option>
+                            <option value="BICYCLING">Bicycling</option>
+                            <option value="TRANSIT" >Transit</option>
+                        </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-xs-12 p-xs">
+                    <div class="hr-line-dashed col-xs-12 col-centered"></div>
+                </div>
+                <div class="col-xs-12" ng-if="tripDetails">
+                    <div class="row text-left">
+                        <div class="col-xs-12 "><strong>Transport Route 1 (Quickest)</strong></div>
+                        <div class="col-xs-12 p-t-xxs">
+                            <i class="fa fa-road text-muted p-sides-xs"></i>&nbsp;{{tripDetails.distance.text}} &nbsp;-&nbsp;
+                            <i class="fa fa-clock-o text-muted p-sides-xs"></i>&nbsp;{{tripDetails.duration.text}}
+                        </div>
+                        <div class="col-xs-12 p-t-xxs">
+                            <div class="col-xs-2 p-sides-none ">
+                                <i ng-if="travelMode === 'TRANSIT'" class="fa fa-train fa-2x text-muted p-sides-xs">&nbsp;</i>
+                                <i ng-if="travelMode === 'DRIVING'" class="fa fa-taxi fa-2x text-muted p-sides-xs">&nbsp;</i>
+                                <i ng-if="travelMode === 'WALKING'" class="fa fa-male fa-2x text-muted p-sides-xs">&nbsp;</i>
+                                <i ng-if="travelMode === 'BICYCLING'" class="fa fa-bicycle fa-2x text-muted p-sides-xs">&nbsp;</i>
+                            </div>
+                            <div class="col-xs-10 p-sides-xs p-t-xxs">
+                                <div class="col-xs-12 p-sides-xs">{{tripDetails.steps.length}} Steps</div>
+                                <div class="col-xs-12 p-sides-xs">
+                                    <small>{{tripDetails.start_address}}</small>
+                                    <strong><i class="fa fa-arrow-right p-sides-xs"></i></strong>
+                                    <small>{{tripDetails.end_address}}</small>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                    </div>
+
+
+                    </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="col-sm-10 col-centered p-t-xs">
             <div class="e col-centered">
                 <div id="map"></div>
             </div>
         </div>
+
+
+        <div class="col-sm-10 col-centered p-t-xs">
+            <div id="panel" style="font-size: 11px;"></div>
+        </div>
+
+
     </div>
 </div>

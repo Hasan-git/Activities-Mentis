@@ -42,12 +42,32 @@ function activity($localForage, $q) {
             angular.forEach(data, function (value, key) {
                 if (value.centerName === center) {
                     array.push(value);
+                    
                 }
                 def.resolve(array);
             });
             
         });
-        $q.all([result]).then(function (da) { def.resolve(da); });
+        $q.all([array]).then(function (da) { def.resolve(da); });
+        return def.promise;
+    }
+    var centerActivitiesById = function (id) {
+
+        var def = $q.defer();
+        var array = [];
+        var obj = {};
+        $localForage.getItem('activities').then(function (data) {
+
+            angular.forEach(data, function (value, key) {
+                if (value.centerId === id) {
+                    array.push(value);
+
+                }
+               
+            });
+            obj = array;
+        });
+        $q.all([array]).then(function (da) { def.resolve(da[0]); });
         return def.promise;
     }
 
@@ -86,8 +106,9 @@ function activity($localForage, $q) {
         getActivity: getActivity,
         getAllActivities: getAllActivities,
         getAllCentersActivities: getAllCentersActivities,
-        centerActivity: centerActivity
-    }
+        centerActivity: centerActivity,
+        centerActivitiesById: centerActivitiesById
+}
 }
 
 

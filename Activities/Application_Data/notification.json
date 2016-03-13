@@ -1,0 +1,17 @@
+﻿[
+  {
+    "notificationId": 1,
+    "userId": 1,
+    "activityId": 3,
+    "discritpion": "New Tai-Chi class started in Holborn Community center . Congratulaions !",
+    "reservationDate": "2016-02-02"
+    
+  },
+  {
+    "notificationId": 2,
+    "userId": 1,
+    "activityId": null,
+    "discritpion": "People that are going to YOGA at Castlehaven Centre are now attending YOGA at Washborn",
+    "reservationDate": "2016-02-02"
+  }  
+]

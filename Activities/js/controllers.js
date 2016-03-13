@@ -36,8 +36,22 @@ function MainCtrl($scope, $window) {
     }
 }//End MainCtrl
 
-function login($scope, loginService, $location, currentUser, $state,$rootScope) {
-    
+function login($scope, loginService, $location, currentUser, $state, $rootScope, toaster, notificationsRepo) {
+
+
+    //notificationsRepo.getNotificationsByUserId(1).then(function (data) {
+    //    console.log(data);
+    //    notificationsRepo.setNewNotification(3, 1).then(function (saved) {
+    //        console.log(saved);
+    //        notificationsRepo.getNotificationsByUserId(1).then(function(da) {
+    //            console.log(da);
+    //        });
+           
+    //    }, function (err) { console.log(err); });
+        
+    //});
+  
+   
     $scope.username = "json";
     $scope.password = "abc123";
     $scope.submitLogin = function () {
@@ -48,8 +62,9 @@ function login($scope, loginService, $location, currentUser, $state,$rootScope) 
             currentUser.setProfile(data.username, data.id, data.name);
             $rootScope.globalName = data.name;
             $state.go('inner.main_page');
-        }, function(error) {
-            alert(error);
+        }, function (error) {
+            toaster.pop('error', "Notification", "Wrong Username or Password !", 3000);
+            
         });
 
         //if (index === null) {
@@ -63,8 +78,10 @@ function login($scope, loginService, $location, currentUser, $state,$rootScope) 
     }
 }//End Login
 
-function mainPage($scope,$state) {
+function mainPage($scope) {
     
+
+
 }
 
 function calendar($scope, activitiesRepo) {
@@ -76,11 +93,29 @@ function calendar($scope, activitiesRepo) {
 function activitiesExposition($scope) {
     $scope.active = "Am here";
 }
-function centers($scope, activitiesRepo) {
-   
-        activitiesRepo.getAllCentersActivities().then(function (res) {
-            $scope.activities = res[0];
-        });
+function centers($scope, resolvedcenters) {
+    
+    $scope.centers = resolvedcenters;
+    $scope.s = function (center) {
+            var str="";
+            var max = 2;
+            var keepGoing = true;
+            angular.forEach(center.activities, function (value, key) {
+                if (keepGoing) {
+                    var length = center.activities.length;
+                    if (key + 1 <= max) {
+                        if (value.title !== null) {
+                            str += value.title + " ";
+                        }
+                    } else {
+                        var more = length - max;
+                        str += " (+ " + more + " more)";
+                        keepGoing = false;
+                    }
+                }
+            });
+            return str;
+        }
 }
 
 function activitiesList($scope, activitiesRepo) {
@@ -91,10 +126,20 @@ function activitiesList($scope, activitiesRepo) {
     $scope.sortReverse = false;  
 }
 
-function activityDetails($scope, resolvedActivty,toaster) {
+function activityDetails($scope, resolvedActivty, toaster, notificationsRepo, currentUser) {
     $scope.activityDetails = resolvedActivty;
-    $scope.saveActivity = function() {
-        toaster.pop('success', "Notification", "Activity Saved !", 4000);
+    $scope.user = currentUser.getProfile();
+   
+
+    $scope.saveActivity = function (activityId,userId) {
+        notificationsRepo.setNewNotification(activityId, userId).then(function (success) {
+            toaster.clear();
+            toaster.pop('success', "Notification", "Activity Saved !", 2000);
+        }, function (error) {
+            toaster.clear();
+            toaster.pop('error', "Notification", error, 2000);
+        });
+        
     }
 }
 
@@ -123,36 +168,64 @@ function bookingEnrollment($scope, resolvedActivtyEnrollment,toaster) {
     toaster.pop('success', "Notification", "Activity booked successfully", 4000);
     $scope.enrolledActivity = resolvedActivtyEnrollment;
 }
-function map($scope,toaster) {
+function map($scope, toaster, $stateParams, activitiesRepo) {
+    
+    toaster.pop('wait', "Notification", "Getting locations ", 2000);
 
-    
-        toaster.pop('wait', "Notification", "Getting locations ", 3000);
+    var defaultLocation = {
+        latitude: 51.4992783,
+        longitude: -0.1271826,
+        formatted_address:"Westminster, London SW1H 0AD UK"
+    };
+    var destinationLocation = {
+        latitude: "",
+        longitude: "",
+        formatted_address: "Adress"
+    };
+    var selectedMode = "DRIVING";
+    $scope.travelMode = "DRIVING";
+   
+    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         
-                var defaultLocation = {
-                    latitude: 51.5181222,
-                    longitude: -0.0727583
-                };
-    
+         //selectedMode = document.getElementById('mode').value !== "" ? document.getElementById('mode').value : "DRIVING";
+        selectedMode = $scope.travelMode;
+
+        directionsService.route({
+            origin: new google.maps.LatLng(defaultLocation.latitude, defaultLocation.longitude),
+            destination: new google.maps.LatLng(destinationLocation.latitude, destinationLocation.longitude),
+            travelMode: google.maps.TravelMode[selectedMode]
+            
+        }, function (response, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+                $scope.travelMode = selectedMode;
+                $scope.tripDetails = response.routes[0].legs[0];
+                directionsDisplay.setDirections(response);
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
+    }
+
     function initMap() {
 
         var geocoder = new google.maps.Geocoder;
         //current Position
         navigator.geolocation.getCurrentPosition(function (pos) {
-            console.log(pos.coords);
+           // console.log(pos.coords);
             var lat = pos.coords.latitude;
             var lng = pos.coords.longitude;
             var latlng = { lat: parseFloat(lat), lng: parseFloat(lng) };
             geocoder.geocode({ 'location': latlng }, function (results, status) {
-                
                 if (status === google.maps.GeocoderStatus.OK) {
-                    var length = results.length-1;
+                    var length = results.length - 1;
+                    
                     if (results) {
                         var country = results[length].formatted_address;
                         if (country === "United Kingdom"){
                             defaultLocation.latitude = lat;
                             defaultLocation.longitude = lng;
+                            defaultLocation.formatted_address = results[0].formatted_address;
                             alert("we are in UK");
-                            
                         }else {
                             alert("You are not located in United Kingdom , so your location will be considered in UK");
                         }
@@ -165,54 +238,108 @@ function map($scope,toaster) {
             alert('Unable to get location: ' + error.message);
         });
 
-
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 7,
             center: { lat: defaultLocation.latitude, lng: defaultLocation.longitude }
         });
-        
         directionsDisplay.setMap(map);
         calculateAndDisplayRoute(directionsService, directionsDisplay);
+        directionsDisplay.setPanel(document.getElementById('panel'));
 
         var onChangeHandler = function () {
             calculateAndDisplayRoute(directionsService, directionsDisplay);
+            $scope.travelMode = document.getElementById('mode').value;
         };
+        document.getElementById('mode').addEventListener('change', onChangeHandler);
     }
 
-    initMap();
-    
-    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-        directionsService.route({
-            origin: new google.maps.LatLng(defaultLocation.latitude, defaultLocation.longitude),
-            destination: new google.maps.LatLng(51.5510106, -0.1853682),
-            travelMode: google.maps.TravelMode.DRIVING
-        }, function (response, status) {
-            if (status === google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
-            } else {
-                window.alert('Directions request failed due to ' + status);
-            }
+    if ($stateParams.center) {
+        destinationLocation.latitude = $stateParams.center.latLng.latitude;
+        destinationLocation.longitude = $stateParams.center.latLng.longitude;
+        initMap();
+        
+    } else if ($stateParams.activityId) {
+        activitiesRepo.getActivity($stateParams.activityId).then(function (activity) {
+            destinationLocation.latitude = activity.latLng.latitude;
+            destinationLocation.longitude = activity.latLng.longitude;
+            destinationLocation.formatted_address = activity.street;
+            
+            initMap();
         });
     }
-
     
+}//End map ctrl
+
+function centerDetails($scope, resolvedCenterDetails,toaster) {
+
+    $scope.centerDetails = resolvedCenterDetails;
+    $scope.calling = function () {
+        toaster.pop('info', "Notification", "<i class='fa fa-phone'>&nbsp;&nbsp;</i>Calling ...&nbsp; <i class='fa fa-spinner fa-pulse'></i>", 3000);
+    }
+}
+
+function notification($scope, resolvedNotifications) {
+
+    $scope.notifications = resolvedNotifications[0];
+}
+
+function map_centers($scope, centersRepo) {
+
+
+
+    var locations = [];
+    centersRepo.getAllCenters().then(function(data) {
+        
+        angular.forEach(data, function(value,key) {
+            var center = [];
+            center.push(value.centerName, value.latLng.latitude, value.latLng.longitude);
+            locations.push(center);
+            console.log(locations);
+            
+        });
+         
+         
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 9,
+            center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    });
     
-
-
-
 }
 
 angular
     .module('active')
-    .controller('login',login)
+    .controller('map', map)
+    .controller('login', login)
     .controller('MainCtrl', MainCtrl)
     .controller('mainPage', mainPage)
     .controller('centers', centers)
-    .controller('map', map)
+    .controller('map_centers', map_centers)
+    .controller('notification', notification)
     .controller('activitiesList', activitiesList)
     .controller('activityDetails', activityDetails)
+    .controller('centerDetails', centerDetails)
     .controller('bookingLicence', bookingLicence)
     .controller('bookingEnrollment', bookingEnrollment)
     .controller('activitiesExposition', activitiesExposition)

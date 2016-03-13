@@ -1,4 +1,41 @@
-﻿<h2 ui-sref="inner.centerDetails">Centers</h2>
+﻿<div class="container-fluid p-t-md" style="padding-bottom: 70px;">
+    <div class="row p-t-xxs">
+        <div class="col-xs-8 col-centered ">
+            <button class="btn btn-info btn-xs btn-block" ui-sref="inner.map_centers"><i class="fa fa-map-marker"></i>&nbsp;Centers map view</button>
+        </div>
 
-<h2 ui-sref="inner.centerDetails">Center Details -></h2>
+            <div class="col-xs-12 ">
+                <table class="col-xs-12 tableActivities m-t-sm">
+                    <tr ng-repeat="center in centers | orderBy:sortType:sortReverse | filter:search:strict" class="pointer">
+                        <td ui-sref="inner.centerDetails({center:center})">
+                            <div class="bs-callout bs-callout-danger">
+                                <div class="col-xs-12 text-left p-sides-xs">
+                                    <div class="col-xs-12 p-sides-none">
+                                        <div class="col-xs-6 p-sides-none">
+                                            <strong class="a_title">{{center.centerName}}</strong>
+                                            <div class="text-muted"> {{center.providing}}</div>
+                                        </div>
+                                        <div class="col-xs-4 p-sides-none">
+                                            <div>
+                                                <img src="{{center.logo}}" class=" col-xs-10 img-responsive">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2 p-sides-none">{{center.distance | fixDigit}} Km</div>
+                                    </div>
 
+                                    <div>
+                                        <i class="fa fa-shopping-cart"></i>&nbsp;{{s(center)}}
+                                    </div>
+                                </div>
+
+                                <i class="fa fa-chevron-right fa-lg pull-right" style="line-height: 3.2em;"></i>
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+</div>

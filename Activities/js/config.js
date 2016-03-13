@@ -33,6 +33,21 @@
             templateUrl: "views/calendar.html",
             controller: calendar
         })
+        .state('inner.notification', {
+            url: "/notification",
+            templateUrl: "views/notification.html",
+            controller: notification,
+            resolve: {
+                resolvedNotifications: function (notificationsRepo, currentUser) {
+                    var user = currentUser.getProfile();
+                    
+                        return notificationsRepo.getNotificationsByUserId(user.id).then(function (data) {
+                            return data;
+                        });
+                }
+            }
+
+        })
         .state('inner.activitiesExposition', {
             url: "/activitiesExposition",
             templateUrl: "views/activitiesExposition.html",
@@ -41,7 +56,14 @@
         .state('inner.activitiesExposition.centers', {
             url: "/activitiesExposition",
             templateUrl: "views/centers.html",
-            controller: centers
+            controller: centers,
+            resolve: {
+                resolvedcenters: function (centersRepo) {
+                    return centersRepo.getCentersInjActivities().then(function (data) {
+                            return data;
+                        });
+                }
+            }
         })
         .state('inner.activitiesExposition.activities', {
             url: "/activities",
@@ -49,8 +71,20 @@
             controller: activitiesList
         })
         .state('inner.centerDetails', {
-            url: "/centerDetails",
-            templateUrl: "views/centerDetails.html"
+            url: "/centerDetails/:center",
+            templateUrl: "views/centerDetails.html",
+            controller: centerDetails,
+            resolve: {
+                resolvedCenterDetails: function ( $stateParams) {
+                    if ($stateParams.center != null) {
+                       
+                       
+                        return $stateParams.center;
+                    
+                    }
+                }
+            }
+
         })
         .state('inner.activityDetails', {
             url: "/activityDetails/:activityId",
@@ -104,9 +138,14 @@
         }
     })
     .state('inner.map', {
-        url: "/map",
+        url: "/map?center&activityId",
         templateUrl: "views/map.html",
         controller: map
+    })
+    .state('inner.map_centers', {
+        url: "/map_centers",
+        templateUrl: "views/map_centers.html",
+        controller: map_centers
     })
     ;
 
@@ -117,13 +156,14 @@
 angular
     .module('active')
     .config(config)
-    .run(function ($rootScope, $state, $location, currentUser, dataInitializer) {
+    .run(function ($rootScope, $state, $location, currentUser, dataInitializer,toaster) {
 
         
         $rootScope.$state = $state;
         $rootScope.offline = false;
         $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
-            
+
+            toaster.clear();
             $rootScope.previousState_name = from.name;
             $rootScope.previousState_params = fromParams;
             
@@ -138,6 +178,9 @@ angular
                     case 'inner.calendar':
                         a = from.name;
                         params = fromParams;
+                        if (a === 'inner.notification') {
+                            a = 'inner.main_page';
+                        }
                         break;
                     case 'inner.activitiesExposition':
                         a = "inner.main_page";
@@ -146,7 +189,7 @@ angular
                         a = "inner.main_page";
                         break;
                     case 'inner.centerDetails':
-                        a = "inner.activitiesExposition";
+                        a = "inner.activitiesExposition.centers";
                         break;
                     case 'inner.activitiesExposition.activities':
                         a = "inner.main_page";
@@ -155,13 +198,18 @@ angular
                         a = "inner.activitiesExposition.activities";
                         params = toParams;
                         break;
+                    
                     case 'inner.bookinglicence':
                         a = "inner.activityDetails";
                         params = toParams;
                         break;
                     case 'inner.map':
                         a = from.name;
-                        params = fromParams;
+                        if (fromParams.activityId) {
+                            params = { activityId: fromParams.activityId };
+                        } else if (fromParams.center) {
+                            params = { center: fromParams.center };
+                        }
                         break;
                     default:
                         a = from.name;
@@ -183,13 +231,13 @@ angular
         $rootScope.destroyDataBase = function() { dataInitializer.destroyRepo(); };
 
         dataInitializer.checkRepo().then(function(data) {
-            console.log( data);
+            console.log("check", data);
         },function(err) {
             console.log(err);
             dataInitializer.initialize().then(function (success) {
-                console.log(success);
+                console.log("success",success);
             }, function (error) {
-                console.log(error);
+                console.log("error", error);
             });
         });
         var deviceHeight = $(window).height();

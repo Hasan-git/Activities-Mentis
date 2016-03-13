@@ -37,16 +37,31 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.header-p-t-b {
+    padding-top: 6px!important;
+    padding-bottom: 6px!important;
+}
+.header-menu {
+    padding-top: 0px;
+    padding-bottom: 0px;
 
+}
+.but-act:active {
+    background-color: #4899CA;
+}
 .device-header {
-    color: #807E7E;
+    /*color: #807E7E;
     background-color: #EBEEEF;
     border-bottom: 1px solid #ccc;
-    box-shadow: 0px 1px 2px #EAE9E9;
+    box-shadow: 0px 1px 2px #EAE9E9;*/
+        background-color: #3779A0;
+    border-bottom: 1px solid #3779A0;
+    box-shadow: 0px 1px 2px #3779A0;
 }
 .header-username {
+        font-size: 11px;
     padding-left: 3px;
-    vertical-align: text-top;
+    vertical-align: middle;
 }
 .col-centered {
     float: none;
@@ -226,22 +241,25 @@
     border: 1px solid #eee;
     border-left-width: 5px;
     border-radius: 3px;
-   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex; 
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex; 
 }
 .tableActivities td:active{
     background-color: #fffafa;
 }
 .hr-line-dashed {
-  border-top: 1px dashed #A6A9AB;
-  color: #ffffff;
-  background-color: #ffffff;
-  height: 1px;
-  margin: 20px 0;
+    border-top: 1px dashed #A6A9AB;
+    color: #ffffff;
+    background-color: #ffffff;
+    height: 1px;
+    /*margin: 20px 0;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
 .hr-line-solid {
   border-bottom: 1px solid #A6A9AB;
   background-color: rgba(0, 0, 0, 0);
@@ -265,18 +283,18 @@
     }
     }
 
-/*map */
+    /*--------       map     --------- */
 
-            #map-canavas {
-				height: 400px;
-				width:700px;
-				border: 1px solid #ccc;
-			}
-			#map {
-		        height: 100%;
-		    }
-			.e {
-				height: 400px;
-				width:700px;
-				border: 1px solid #ccc;
-			}
+    #map-canavas {
+		height: 400px;
+		width:700px;
+		border: 1px solid #ccc;
+	}
+	#map {
+		height: 100%;
+	}
+	.e {
+		height: 400px!important;
+		/*width:700px;
+		border: 1px solid #ccc;*/
+	}

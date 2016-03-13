@@ -1,5 +1,5 @@
 ﻿
-function Initializer($localForage,$http,$q) {
+function Initializer($localForage, $http, $q) {
 
   
 
@@ -17,17 +17,26 @@ function Initializer($localForage,$http,$q) {
                             if (!activitiesB)
                             deferred.reject('Initializing failed');
                         else {
-                                $http.get('Application_data/activities.json').success(function(pruchasedActivities) {
-                                    $localForage.setItem('purchasedActivities', pruchasedActivities).then(function (purchasedActivitiesC) {
-                                        if (!purchasedActivitiesC)
+                                $http.get('Application_data/centers.json').success(function (centers) {
+                                    $localForage.setItem('centers', centers).then(function (centersC) {
+                                        if (!centersC)
                                         deferred.reject('Initializing failed');
                                     else {
                                             $http.get('Application_data/bookedActivities.json').success(function (bookedActivities) {
                                                 $localForage.setItem('bookedActivities', bookedActivities).then(function (bookedActivitiesD) {
-                                                    if (!purchasedActivitiesC)
+                                                    if (!bookedActivitiesD)
                                                         deferred.reject('Initializing failed');
                                                     else {
-                                                        deferred.resolve('Successfully initialized');
+                                                        $http.get('Application_data/notification.json').success(function(notification) {
+                                                            $localForage.setItem('notification', notification).then(function (notificationF) {
+                                                                if (!notificationF)
+                                                                    deferred.reject('Initializing failed');
+                                                                else {
+                                                                    deferred.resolve('Successfully initialized');
+                                                                }
+                                                            });
+                                                        });
+                                                        
                                                     }
                                                 });
 
@@ -57,15 +66,23 @@ function Initializer($localForage,$http,$q) {
                     if (!activities) 
                         deferred.reject('Repo not initialized yet ');
                     else {
-                        $localForage.getItem('purchasedActivities').then(function (purchasedactivities) {
-                            if (!purchasedactivities) 
+                        $localForage.getItem('centers').then(function (centers) {
+                            if (!centers)
                                 deferred.reject('Repo not initialized yet ');
                             else {
                                 $localForage.getItem('bookedActivities').then(function (bookedActivities) {
                                     if (!bookedActivities)
                                         deferred.reject('Repo not initialized yet ');
                                     else {
-                                        deferred.resolve('Repo already initialized ');
+                                        $localForage.getItem('notification').then(function (notification) {
+                                            if (!notification)
+                                                deferred.reject('Repo not initialized yet ');
+                                            else {
+                                                deferred.resolve('Repo already initialized ');
+                                               
+                                            }
+                                        });
+                                        
                                     }
                                 });
                             }
