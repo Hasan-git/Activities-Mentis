@@ -93,8 +93,12 @@ function calendar($scope, activitiesRepo) {
 function activitiesExposition($scope) {
     $scope.active = "Am here";
 }
-function centers($scope, resolvedcenters) {
-    
+function centers($scope, resolvedcenters, $rootScope) {
+
+   
+    $scope.sortType = 'name';
+    $scope.sortReverse = false;
+
     $scope.centers = resolvedcenters;
     $scope.s = function (center) {
             var str="";
@@ -115,15 +119,27 @@ function centers($scope, resolvedcenters) {
                 }
             });
             return str;
-        }
+    }
+    $scope.len = function (center) {
+
+        var len = center.activities.length;
+       
+        return len;
+    }
 }
 
-function activitiesList($scope, activitiesRepo) {
+function activitiesList($scope, activitiesRepo, $rootScope) {
     activitiesRepo.getAllActivities().then(function(data) {
         $scope.allActivities = data;
     });
+    $scope.formatDate = function (date) {
+        var dateOut = new Date(date);
+        return dateOut;
+    };
     $scope.sortType = 'name'; 
-    $scope.sortReverse = false;  
+    $scope.sortReverse = false;
+    //$rootScope.currentActivities = true;
+    //$rootScope.currentVenues = false;
 }
 
 function activityDetails($scope, resolvedActivty, toaster, notificationsRepo, currentUser) {
@@ -273,16 +289,30 @@ function map($scope, toaster, $stateParams, activitiesRepo) {
 }//End map ctrl
 
 function centerDetails($scope, resolvedCenterDetails,toaster) {
-
+    $scope.oneAtATime = true;
     $scope.centerDetails = resolvedCenterDetails;
     $scope.calling = function () {
         toaster.pop('info', "Notification", "<i class='fa fa-phone'>&nbsp;&nbsp;</i>Calling ...&nbsp; <i class='fa fa-spinner fa-pulse'></i>", 3000);
     }
+    $scope.formatDate = function (date) {
+        var dateOut = new Date(date);
+        return dateOut;
+    };
 }
 
 function notification($scope, resolvedNotifications) {
 
     $scope.notifications = resolvedNotifications[0];
+
+    $scope.removeRow = function (idx) {
+        $scope.notifications.splice(idx, 1);
+    };
+    $scope.removeAll = function () {
+        
+        while ($scope.notifications.length>0) {
+            $scope.notifications.splice(0, 1);
+        }
+    };
 }
 
 function map_centers($scope, centersRepo) {

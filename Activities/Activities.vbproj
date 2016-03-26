@@ -98,13 +98,25 @@
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\set1.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\toaster-0.4.16.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\arrows.png" />
+    <Content Include="images\icons.png" />
+    <Content Include="images\nav.png" />
     <Content Include="img\castle.png" />
+    <Content Include="img\Head.png" />
+    <Content Include="img\Head2.png" />
+    <Content Include="img\Head3.png" />
     <Content Include="img\holborn.png" />
     <Content Include="img\kentish.png" />
+    <Content Include="img\Logo-menu.png" />
+    <Content Include="img\Logo.png" />
+    <Content Include="img\venues.png" />
     <Content Include="index.html" />
     <Content Include="js\angular-ui-router.js" />
     <Content Include="js\app.js" />
@@ -119,6 +131,19 @@
     <Content Include="js\Repositories\notificationsRepository.js" />
     <Content Include="js\Repositories\usersRepository.js" />
     <Content Include="js\services.js" />
+    <Content Include="Scripts\calendar\css\clndr.css" />
+    <Content Include="Scripts\calendar\css\style.css" />
+    <Content Include="Scripts\calendar\images\1.jpg" />
+    <Content Include="Scripts\calendar\images\2.jpg" />
+    <Content Include="Scripts\calendar\images\arrows.png" />
+    <Content Include="Scripts\calendar\images\icons.png" />
+    <Content Include="Scripts\calendar\images\nav.png" />
+    <Content Include="Scripts\calendar\js\clndr.js" />
+    <Content Include="Scripts\calendar\js\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\calendar\js\moment-2.2.1.js" />
+    <Content Include="Scripts\calendar\js\responsiveslides.min.js" />
+    <Content Include="Scripts\calendar\js\site.js" />
+    <Content Include="Scripts\calendar\js\underscore-min.js" />
     <Content Include="Scripts\plugin\toaster-0.4.16.min.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -939,6 +964,8 @@
     <Content Include="Application_Data\bookedActivities.json" />
     <Content Include="Application_Data\centers.json" />
     <Content Include="Application_Data\notification.json" />
+    <Content Include="Scripts\calendar\images\Thumbs.db" />
+    <Content Include="images\Thumbs.db" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
@@ -963,6 +990,7 @@
     <Content Include="views\map.html" />
     <Content Include="views\map_centers.html" />
     <Content Include="views\notification.html" />
+    <Content Include="views\register.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

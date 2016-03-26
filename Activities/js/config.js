@@ -18,6 +18,10 @@
             templateUrl: "views/login.html",
             controller: login
         })
+        .state('home.register', {
+            url: "/register",
+            templateUrl: "views/register.html"
+        })
         .state('inner', {
             abstract: true,
             url: "/inner",
@@ -168,6 +172,7 @@ angular
             $rootScope.previousState_params = fromParams;
             
 
+
             if (to.name == "inner.main_page") {
                 $rootScope.back = false;
             } else {
@@ -187,12 +192,16 @@ angular
                         break;
                     case 'inner.activitiesExposition.centers':
                         a = "inner.main_page";
+                        $rootScope.currentActivities = false;
+                        $rootScope.currentVenues = true;
                         break;
                     case 'inner.centerDetails':
                         a = "inner.activitiesExposition.centers";
                         break;
                     case 'inner.activitiesExposition.activities':
                         a = "inner.main_page";
+                        $rootScope.currentActivities = true;
+                        $rootScope.currentVenues = false;
                         break;
                     case 'inner.activityDetails':
                         a = "inner.activitiesExposition.activities";

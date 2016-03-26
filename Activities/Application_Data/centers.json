@@ -9,6 +9,8 @@
       "longitude": -0.3438503
     },
     "providing": "Activities/Sessions",
+    "speciality": "Community Centre",
+    "workDays":"Mon - Fri",
     "time": "10:00 - 18:30pm",
     "logo": "../img/holborn.png",
     "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id. "
@@ -23,6 +25,8 @@
       "longitude": -0.3314584
     },
     "providing": "Activities/Sessions",
+    "speciality": "Community Centre",
+    "workDays":"Mon - Fri",
     "courseType": "Session",
     "time": "10:00 - 18:30pm",
     "logo": "../img/castle.png",
@@ -38,6 +42,8 @@
       "longitude": -0.4298734
     },
     "providing": "Activities/Sessions",
+    "speciality": "Library",
+    "workDays":"Mon - Fri",
     "courseType": "Session",
     "time": "10:00 - 18:30pm",
     "logo": "../img/kentish.png",
