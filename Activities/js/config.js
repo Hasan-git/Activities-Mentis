@@ -32,6 +32,18 @@
             templateUrl: "views/main_page.html",
             controller: mainPage
         })
+        .state('inner.q1', {
+            url: "/q1",
+            templateUrl: "views/q1.html"
+        })
+        .state('inner.q2', {
+            url: "/q2",
+            templateUrl: "views/q2.html"
+        })
+        .state('inner.q3', {
+            url: "/q3",
+            templateUrl: "views/q3.html"
+        })
         .state('inner.calendar', {
             url: "/calendar",
             templateUrl: "views/calendar.html",

@@ -61,7 +61,8 @@ function login($scope, loginService, $location, currentUser, $state, $rootScope,
         loginService.check(username, password).then(function(data) {
             currentUser.setProfile(data.username, data.id, data.name);
             $rootScope.globalName = data.name;
-            $state.go('inner.main_page');
+            //$state.go('inner.main_page');
+            $state.go('inner.q1');
         }, function (error) {
             toaster.pop('error', "Notification", "Wrong Username or Password !", 3000);
             

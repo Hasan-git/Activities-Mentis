@@ -17,7 +17,7 @@
     "dropin": "Drop-in accepted",
     "title": "Crafts",
     "startDate": "2016-01-07",
-    "startTime": "1:00",
+    "startTime": "12:00",
     "endTime": "2:30",
     "time": "1pm - 3:30pm ",
      "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id. "
@@ -41,7 +41,7 @@
     "dropin": "Drop-in accepted",
     "title": "Computer Support",
     "startDate": "2016-02-07",
-    "startTime": "1:00",
+    "startTime": "09:00",
     "endTime": "2:30",
     "time": "10am - 12am  ",
     "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
@@ -65,8 +65,8 @@
     "dropin": "Drop-in accepted",
     "title": "Tai-chi",
     "startDate": "2016-10-07",
-    "startTime": "1:00",
-    "endTime": "2:30",
+    "startTime": "16:00",
+    "endTime": "22:30",
     "time": "10am - 12am  ",
     "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   },
@@ -89,8 +89,8 @@
     "dropin": "Drop-in accepted",
     "title": "Yoga",
     "startDate": "2016-08-07",
-    "startTime": "1:00",
-    "endTime": "2:30",
+    "startTime": "13:00",
+    "endTime": "21:30",
     "time": "10am - 12am  ",
     "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   },
@@ -137,7 +137,7 @@
     "dropin": "Drop-in accepted",
     "title": "Bridge Club",
     "startDate": "2016-04-21",
-    "startTime": "1:00",
+    "startTime": "12:00",
     "endTime": "2:30",
     "time": "10am - 12am  ",
     "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
@@ -161,8 +161,8 @@
     "dropin": "Drop-in accepted",
     "title": "IT",
     "startDate": "2016-12-17",
-    "startTime": "1:00",
-    "endTime": "2:30",
+    "startTime": "17:00",
+    "endTime": "18:30",
     "time": "10am - 12am  ",
     "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   }

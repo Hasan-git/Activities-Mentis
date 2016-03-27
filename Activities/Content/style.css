@@ -381,6 +381,7 @@ padding-left: 45px;
 
 .panel-body {
     padding-right: 0;
+    padding-left: 4px;
 }
 .panel-default > .panel-heading {
     background-color: #fff!important;

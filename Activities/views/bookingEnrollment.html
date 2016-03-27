@@ -1,9 +1,10 @@
-﻿<div class="container-fluid p-t-md">
+﻿<div class="container-fluid p-t-xs">
     <div class="row p-t-xxs">
         <div class="col-xs-12 col-centered">
-            
+           
             <div class="row">
-                <div class="col-lg-8 col-centered"><i class="fa fa-check-square-o fa-5x" style="color: #65C164; font-size: 95px;"></i>
+                <div class="col-lg-8 col-centered">
+                    <i class="fa fa-check-square-o fa-5x" style="color: #65C164; font-size: 95px;"></i>
                 </div>
                 <div class="col-lg-8 col-centered">
                     <h3 style="color: #676767; margin-top: 1px; font-family: Patua One;"><strong>Thank You !!</strong>
@@ -11,7 +12,7 @@
                 </div>
                 <div class="col-lg-8 col-centered">
                     <div class="col-xs-12 col-centered ">
-                        Your activity has been booked with the following details :
+                        Your activity has been booked :
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -22,15 +23,31 @@
                
             </div>
             
-            <div class="row">
+            <div class="row p-b-lg">
                 <div class="col-lg-10">
-                    <div class="col-lg-12 text-left">
+                    <div class="col-sm-12 text-left m-b-md p-sides-none">
+                        <h3>
+                            <strong>{{enrolledActivity.title}}</strong>
+
+                        </h3>
+                    </div>
+                    <div class="col-xs-12 text-left p-sides-none m-b-xs  ">
+                        <div class="col-xs-6 p-sides-none">Start date: <span style="font-weight: bolder; color: #5D5B5B;">{{enrolledActivity.startDate}}</span></div>
+                        <div class="col-xs-6p-sides-none text-muted">
+                            <i class="fa fa-clock-o"></i>&nbsp;{{enrolledActivity.startTime}}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-sides-none">
+                        <button class="btn btn-default btn-block" ui-sref="inner.map({activityId:enrolledActivity.activityId})" style="background-color: #ccc;"><i class="fa fa-car"></i>&nbsp;See transport routes</button>
+                    </div>
+                    <!--<div class="col-lg-12 text-left">
                         <h5>
                             <strong class="ng-binding">
                                 {{enrolledActivity.attendStatus}}
                             </strong>
                         </h5>
-                    </div><div class="col-xs-6" style="padding-left: 0px;">
+                    </div>
+                    <div class="col-xs-6" style="padding-left: 0px;">
                         <div class="col-xs-12">
                             <div class="">
                                 <div class="text-left">
@@ -63,19 +80,14 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="clearfix"></div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-lg-12">
-                        <div class="hr-line-dashed"></div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-centered">
-                    <button class="btn btn-primary btn-xs btn-block" ui-sref="inner.activitiesExposition.activities"><i class="fa fa-th-list"></i>&nbsp;&nbsp;Keep looking for more activities</button>
+                <div class="col-lg-8 col-centered p-t-lg">
+                    <button class="btn btn-purple  btn-block" ui-sref="inner.activitiesExposition.activities"><i class="fa fa-home"></i>&nbsp;&nbsp;HOME PAGE</button>
                 </div>
             </div>
 
