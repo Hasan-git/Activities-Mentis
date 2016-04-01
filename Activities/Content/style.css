@@ -2,6 +2,20 @@
     /*font-family: Roboto Condensed;*/
     font-family: Roboto;
 }
+
+/*@media screen and (min-width: 768px) {
+    body {
+       
+        font-size: 3em!important;
+    }
+}
+@media screen and (max-width: 765px) {
+    body {
+     
+        font-size: 1.3em!important;
+    }
+}
+*/
 .title {
     font-family: patua one;
 }
