@@ -20,8 +20,10 @@
 .cal1 .clndr .clndr-controls .month {
 	padding: 15px 0 0 0;
 	text-align: center;
-	color:#71c6c1;
+	/*color:#71c6c1;*/
 	font-size: 24px;
+    color: #2C3038;
+    font-weight: bolder;
 }
 .cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button { 
   position:absolute;
@@ -88,11 +90,23 @@
   vertical-align:middle;
 }
 
-.cal1 .clndr .clndr-table tr .day.today {
+/*.cal1 .clndr .clndr-table tr .day.today {
       color: #5482AB!important;
     text-decoration: none;
     border: 1px solid #5482AB;
- }
+ }*/
+    .cal1 .clndr .clndr-table tr .day.today {
+    color: #fff!important;
+    font-weight: 700;
+    text-decoration: none;
+    border: 0px solid #009586;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 15px;
+    width: 90%;
+    background-color: #009586;
+    margin-top: 4px;
+}
   
 .cal1 .clndr .clndr-table tr .day.today:hover {
   	color:#000;
@@ -110,7 +124,8 @@
 	font-size: 15px;
 	text-align: center;
 	cursor: pointer;
-	  padding: 10px;
+	  padding: 4px;
+          line-height: 25px;
 }
 .cal1:hover .clndr:hover .clndr-table tr:hover .day:hover .day-contents:hover {
 	
@@ -151,6 +166,24 @@
 	  min-height: 92px;
 	}
 }
+@media all and (min-width:766px) {
+    .cal1 .clndr .clndr-table tr .day.today {
+    color: #fff!important;
+    font-weight: 700;
+    text-decoration: none;
+    border: 0px solid #009586;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 15px;
+    width: 50%;
+    background-color: #009586;
+    margin-top: 4px;
+}
+    .day.today>.day-contents {
+    margin-top: 0!important;
+}
+
+}
 @media all and (max-width:640px) {
 .cal1 .clndr .clndr-controls {
   padding: 1em 0 0 0;
@@ -162,6 +195,7 @@
 .cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button {
   top: 14px;
 }
+
 }
 @media all and (max-width:480px) {
 	.cal1 .clndr .clndr-controls .month {
@@ -221,4 +255,52 @@
 	.cal1 .clndr .clndr-table {
 	  height: 230px;
 	  }
+}
+
+/* added*/
+.day.today>.day-contents {
+    margin-top: 0;
+}
+
+.day-event-badge {
+    border: 5px solid #DF4C79;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 6px;
+    width: 100%;
+    padding: 2px!important;
+    /* height: 44%; */
+}
+
+
+
+
+
+
+@media all and (min-width:766px) {
+    .cal1 .clndr .clndr-table tr .day.today {
+    color: #fff!important;
+    font-weight: 700;
+    text-decoration: none;
+    border: 0px solid #009586;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 15px;
+    width: 50%;
+    background-color: #009586;
+    margin-top: 4px;
+}
+    .day.today>.day-contents {
+    margin-top: 5px!important;
+}
+    .day-event-badge {
+    border: 5px solid #DF4C79;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 6px;
+    width: 42%;
+    /* height: 44%; */
+    /* padding: 2px!important; */
+}
+
 }

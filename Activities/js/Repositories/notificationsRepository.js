@@ -55,6 +55,25 @@ function notificationsRepo($localForage, $q, activitiesRepo) {
         return deferred.promise;
     }
 
+    var DeleteAllNotifications = function () {
+        
+        var deferred = $q.defer();
+        $localForage.getItem('notification').then(function (data) {
+            alert('data');
+            $localForage.removeItem("notification").then(function(deleted) {
+            $localForage.setItem("notification", "").then(function (deletedz) {
+                alert('deleted'+deleted);
+                if (deleted)
+                    deferred.resolve("All notifications dismissed successfully");
+                else
+                    deferred.reject();
+
+            });
+            });
+        });
+        return deferred.promise;
+    }
+
     var getNotificationsByUserId = function (userId) {
 
         var deferred = $q.defer();
@@ -77,6 +96,34 @@ function notificationsRepo($localForage, $q, activitiesRepo) {
         return deferred.promise;
     }
 
+    var DeleteNotificationByUserId = function (notificationId) {
+
+        var deferred = $q.defer();
+        if (!notificationId)
+            deferred.reject();
+
+        getAllNotifications().then(function (object) {
+            var result = [];
+            if (object) {
+                angular.forEach(object, function (value, key) {
+                    if (value.notificationId !== notificationId) {
+                        result.push(value);
+                    }
+                });
+                $q.all([result]).then(function (da) {
+                    console.log(da);
+                    $localForage.setItem("notification", da[0]).then(function (deletedz) {
+                        deferred.resolve(da);
+                    });
+                    
+                });
+            } else {
+                deferred.reject();
+            }
+        });
+        return deferred.promise;
+    }
+
     var setNewNotification = function (activityId, userId) {
 
         var deferred = $q.defer();
@@ -88,11 +135,12 @@ function notificationsRepo($localForage, $q, activitiesRepo) {
                         if (valid === "grant") {
                             getMax(response[0]).then(function (max) {
                                 getAllNotifications().then(function (all) {
-                                    var discription = "Your saved event " + activityDetails.title +
-                                    " will start in " + activityDetails.startDate;
+                                    var discription = "<span>Your saved event <strong> " + activityDetails.title +
+                                    " </strong> will start in <strong>" + activityDetails.startDate+"</strong></span>.";
                                     var notification = {
                                         "notificationId": max[0],
                                         "userId": userId,
+                                        "type":"bookmark",
                                         "activityId": activityId,
                                         "discritpion": discription,
                                         "reservationDate": new Date()
@@ -122,7 +170,9 @@ function notificationsRepo($localForage, $q, activitiesRepo) {
     return {
         getNotificationsByUserId: getNotificationsByUserId,
         getAllNotifications: getAllNotifications,
-        setNewNotification: setNewNotification
+        setNewNotification: setNewNotification,
+        DeleteAllNotifications: DeleteAllNotifications,
+        DeleteNotificationByUserId: DeleteNotificationByUserId
     }
 }
 

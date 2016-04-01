@@ -176,14 +176,21 @@ angular
 
         
         $rootScope.$state = $state;
+       
         $rootScope.offline = false;
+
+        $rootScope.$on('$locationChangeSuccess', function(evt) {
+            $rootScope.urlState = $state.current.name;
+        });
+
+
         $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
 
             toaster.clear();
             $rootScope.previousState_name = from.name;
             $rootScope.previousState_params = fromParams;
             
-
+            
 
             if (to.name == "inner.main_page") {
                 $rootScope.back = false;
@@ -223,6 +230,12 @@ angular
                     case 'inner.bookinglicence':
                         a = "inner.activityDetails";
                         params = toParams;
+                        break;
+                    case 'inner.bookingEnrollment':
+                        a = from.name;
+                        if (from.name !== "bookinglicence") {
+                            a = "inner.activitiesExposition.activities";
+                        }
                         break;
                     case 'inner.map':
                         a = from.name;

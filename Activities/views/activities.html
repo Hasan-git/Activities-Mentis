@@ -5,12 +5,14 @@
                 Sort by:
             </div>
             <div class="col-xs-10 p-sides-none">
-                <select ng-model="sortType">
-                    <option value="name">Name</option>
+                <select ng-model="sortType" style="border: 0;width: 40%;">
+                    <option value="latLng">Distance</option>
+                    <option value="price">Price</option>
+                    <!--<option value="title" selected="">Name</option>
                     <option value="startDate">Date</option>
                     <option value="price">Price</option>
                     <option value="attendStatus">Type/Duration</option>
-                    <option value="latLng">Distance</option>
+                    <option value="latLng">Distance</option>-->
                 </select>
                 <!--<table class="col-xs-12 ">
                     <thead>
@@ -49,52 +51,66 @@
             </div>
         </div>
     </div>
-
+    
     <div class="row p-t-xxs">
         <div class="col-xs-12 p-sides-none">
             <table class="col-xs-12 tableActivities ">
-                <tr ng-repeat="activity in allActivities | orderBy:sortType:sortReverse | filter:search:strict" class="pointer">
-                    <td ui-sref="inner.activityDetails({activityId:activity.activityId})" style="border-bottom: 1px solid #ccc;padding-bottom: 7px;padding-top: 7px;">
+                <tr ng-repeat="activity in filteredActivities = (allActivities | orderBy:sortType | filter:search:strict)" class="pointer">
+                    <td ui-sref="inner.activityDetails({activityId:activity.activityId})" style="border-bottom: 1px solid #ccc; padding-bottom: 7px; padding-top: 7px;">
                         <!--<div class="bs-callout bs-callout-danger">-->
-                            
-                                <div class="col-xs-6 text-left" style="padding-right: 2px;">
-                                    <div><strong class="a_title" >{{activity.title}}</strong></div>
-                                    <div class="text-muted"> {{activity.category}}</div>
-                                    <div class="text-muted"> {{activity.registration}}</div>
-                                    <div class="" style="color: #646161;font-weight: 600;">{{activity.centerName}}</div>
+
+                        <div class="col-xs-6 text-left" style="padding-right: 2px;">
+
+                            <div class="col-xs-2 p-sides-none" style="line-height: 17px;">
+                                <span class="badge" style="background-color: #2F3541; padding: 1px 4px; font-size: 11px;">{{$index+1}}</span>
+                            </div>
+                            <div class="col-xs-10 p-sides-none">
+                                <div>
+                                    <h5 style="margin: 0;"><strong class="a_title" style="color: #000;">{{activity.title}}</strong></h5>
                                 </div>
-                        <div class="col-xs-6 text-left" style="padding-left: 15px;padding-right: 2px;">
+                                <div class="text-muted" style="font-weight: 300;"> {{activity.category}}</div>
+                                <div class="text-muted" style="font-weight: 300;"> {{activity.registration}}</div>
+                                <div class="" style="color: #646161; font-weight: 600;">{{activity.centerName}}</div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-6 text-left" style="padding-left: 6px; padding-right: 2px;">
                             <div>&nbsp;</div>
-                            <div class="col-xs-12">
-                                <div class="col-xs-8">&nbsp;</div>
-                                <div class="text-right">
+                            <div class="col-xs-12 p-sides-none">
+                                <div class="col-xs-8 p-sides-none">&nbsp;</div>
+                                <div class="col-xs-3 text-right p-sides-none">
                                     {{formatDate(activity.startDate) | date:'MMM dd'}}
 
-                                    <div class="col-xs-3"></div>
-
                                 </div>
                             </div>
-                            
-                            <div class="text-left" style="color: #5B5252;font-weight: bolder;">
-                                <i class="fa fa-gbp text-muted"></i>
-                                <strong >Free / <i class="fa fa-gbp" style="color: #5B5252;"></i>{{activity.price}}</strong>
+                            <div class="col-xs-12 p-sides-none">
+                                <div class="col-xs-5 p-sides-none">
+                                    <div class="text-left" style="color: #050505; font-weight: bolder;">
+                                        <i class="fa fa-gbp text-muted"></i>
+                                        <strong>Free / <i class="fa fa-gbp" style="color: #5B5252;"></i>{{activity.price}}</strong>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-muted">
+                            <div class=" col-xs-12 p-sides-none text-muted" style="font-size: 1em;">
                                 <div class="text-left">
-                                    <span class="text-muted col-xs-5 p-sides-none"><i class="fa fa-refresh"></i>&nbsp;{{activity.attendStatus}}</span>
-                                    <span class="text-muted col-xs-3 p-sides-none" style="font-size: 10px;"><i class="fa fa-clock-o"></i>&nbsp;{{activity.startTime}}</span>
-                                    <span class="text-muted col-xs-3 p-sides-none" style="font-size: 10px;"><i class="fa fa-clock-o"></i>&nbsp;{{activity.endTime}}</span>
+                                    <div class="text-muted col-xs-5 p-sides-none"><i class="fa fa-refresh"></i>&nbsp;{{activity.attendStatus}}
+                                    </div>
+                                    <div class="text-muted col-xs-3 p-sides-none" style=""><i class="fa fa-clock-o"></i>&nbsp;{{activity.duration}}
+                                    </div>
+                                    <div class="text-muted text-right col-xs-3 p-sides-none" style=""><i class="fa fa-clock-o"></i>&nbsp;{{activity.endTime}}
+                                    </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                               
-                            
+
+
                         <!--</div>-->
                         <div class="clearfix"></div>
                     </td>
                 </tr>
+                <tr ng-show="!filteredActivities.length"><td style="padding-top: 15px;font-weight: 500;"><i class="fa fa-archive fa-lg" style="color: #757373;"></i> No Activities available !</td></tr>
             </table>
             <div class="clearfix"></div>
         </div>

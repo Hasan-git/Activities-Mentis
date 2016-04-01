@@ -85,22 +85,26 @@ function mainPage($scope) {
 
 }
 
-function calendar($scope, activitiesRepo) {
+function calendar($scope) {
     $scope.today = function () {
         $scope.dt = new Date();
     };
+    $scope.date = new Date();
     $scope.today();
 }
 function activitiesExposition($scope) {
     $scope.active = "Am here";
+   
+   
 }
 function centers($scope, resolvedcenters, $rootScope) {
 
    
-    $scope.sortType = 'name';
+    $scope.sortType = 'latLng';
     $scope.sortReverse = false;
 
     $scope.centers = resolvedcenters;
+    $rootScope.centersz = resolvedcenters;
     $scope.s = function (center) {
             var str="";
             var max = 2;
@@ -127,25 +131,33 @@ function centers($scope, resolvedcenters, $rootScope) {
        
         return len;
     }
+
+   
+
 }
 
-function activitiesList($scope, activitiesRepo, $rootScope) {
+function activitiesList($scope, activitiesRepo, $rootScope, $filter) {
     activitiesRepo.getAllActivities().then(function(data) {
         $scope.allActivities = data;
+        $rootScope.allActivitiesz = data;
     });
     $scope.formatDate = function (date) {
         var dateOut = new Date(date);
         return dateOut;
     };
-    $scope.sortType = 'name'; 
+    $scope.sortType = 'latLng';
     $scope.sortReverse = false;
     //$rootScope.currentActivities = true;
     //$rootScope.currentVenues = false;
+    
 }
 
 function activityDetails($scope, resolvedActivty, toaster, notificationsRepo, currentUser) {
     $scope.activityDetails = resolvedActivty;
     $scope.user = currentUser.getProfile();
+    $scope.calling = function () {
+        toaster.pop('info', "Notification", "<i class='fa fa-phone'>&nbsp;&nbsp;</i>Calling ...&nbsp; <i class='fa fa-spinner fa-pulse'></i>", 3000);
+    }
    
 
     $scope.saveActivity = function (activityId,userId) {
@@ -243,8 +255,10 @@ function map($scope, toaster, $stateParams, activitiesRepo) {
                             defaultLocation.longitude = lng;
                             defaultLocation.formatted_address = results[0].formatted_address;
                             alert("we are in UK");
-                        }else {
-                            alert("You are not located in United Kingdom , so your location will be considered in UK");
+                        } else {
+                            toaster.clear();
+                            //alert("You are not located in United Kingdom , so your location will be considered in UK");
+                            toaster.pop('warning', "Notification", "You are not located in United Kingdom , so your location will be considered in UK", 6000);
                         }
                     } 
                 } else {
@@ -299,12 +313,15 @@ function centerDetails($scope, resolvedCenterDetails,toaster) {
         var dateOut = new Date(date);
         return dateOut;
     };
+    
+
+    
 }
 
-function notification($scope, resolvedNotifications) {
+function notification($scope, resolvedNotifications, notificationsRepo, toaster, $localForage) {
 
     $scope.notifications = resolvedNotifications[0];
-
+    console.log($scope.notifications);
     $scope.removeRow = function (idx) {
         $scope.notifications.splice(idx, 1);
     };
@@ -314,6 +331,30 @@ function notification($scope, resolvedNotifications) {
             $scope.notifications.splice(0, 1);
         }
     };
+    $scope.removeAllnotifications = function () {
+        
+        //notificationsRepo.DeleteAllNotifications().then(function(response) {
+        //    
+        //});
+        //$localForage.getItem('notification').then(function(data) {
+        //    
+        //    console.log(data);
+        //});
+        // $localForage.removeItem("notification").then(function(deleted) {});
+        var a = [];
+        $localForage.setItem("notification", a).then(function (deletedz) { });
+        $localForage.getItem('notification').then(function (data) { console.log(data); });
+        while ($scope.notifications.length > 0) {
+            $scope.notifications.splice(0, 1);
+        }
+    };
+    $scope.dismissNotification = function (notificationId, idx) {
+        notificationsRepo.DeleteNotificationByUserId(notificationId).then(function(data) {
+            $scope.notifications.splice(idx, 1);
+        });
+    }
+
+
 }
 
 function map_centers($scope, centersRepo) {

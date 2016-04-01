@@ -11,7 +11,7 @@
     "providing": "Activities/Sessions",
     "speciality": "Community Centre",
     "workDays":"Mon - Fri",
-    "time": "10:00 - 18:30pm",
+    "time": "10:00 - 18:30",
     "logo": "../img/holborn.png",
     "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id. "
   },
@@ -28,7 +28,7 @@
     "speciality": "Community Centre",
     "workDays":"Mon - Fri",
     "courseType": "Session",
-    "time": "10:00 - 18:30pm",
+    "time": "10:00 - 18:30",
     "logo": "../img/castle.png",
     "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   },
@@ -45,7 +45,7 @@
     "speciality": "Library",
     "workDays":"Mon - Fri",
     "courseType": "Session",
-    "time": "10:00 - 18:30pm",
+    "time": "10:00 - 18:30",
     "logo": "../img/kentish.png",
     "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   }

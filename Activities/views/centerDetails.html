@@ -2,17 +2,44 @@
 <div class="container-fluid " style="">
     <div class="row p-t-xxs">
         <div class="col-lg-10 text-left ">
-            <h2 style="font-family: patua one; ">
+            <h3 style="margin: 0;">
                 <strong class="a_centername">
                     {{centerDetails.centerName}}
                 </strong>
-            </h2>
-            <div class="col-lg-12 p-sides-xs">
-                <div class="col-lg-12 p-sides-xs">
-                    <div class="hr-line-dashed"></div>
+            </h3>
+            <div class="text-muted"> {{centerDetails.speciality}}</div>
+            <div class="col-lg-12 p-sides-none">
+                <div class="col-lg-12 p-sides-none">
+                    <!--<div class="hr-line-dashed"></div>-->
+                    <hr />
                 </div>
             </div>
-            <div class="col-lg-10 text-left">
+            <div class="col-lg-10 p-sides-none">
+                <div class="col-xs-12 p-sides-none">
+                    <div class="col-xs-6">
+                        <strong><i class="fa fa-home "></i></strong>&nbsp;
+                        <span> {{centerDetails.street}}</span>
+                    </div>
+                    <div class="col-xs-6">
+                        <strong><i class="fa fa-phone"></i></strong>&nbsp;
+                        <span> {{centerDetails.phone}}</span>
+
+                        
+                    </div>
+                </div>
+                <!-- split -->
+                <div class="col-xs-12 p-sides-none p-t-xxs">
+                    <div class="col-xs-6">
+                        <button class="btn btn-red btn-xs p-xxs btn-block" ui-sref="inner.map({center:centerDetails})"><i class="fa fa-map-marker"></i>&nbsp;Map/Transport </button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="btn btn-green btn-xs p-xxs btn-block" ng-click="calling()"> <i class="fa fa-phone"></i> &nbsp;Call now</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!--<div class="col-lg-10 text-left">
                 <strong><i class="fa fa-home "></i></strong>&nbsp;
                 <span> {{centerDetails.street}}</span>
             </div>
@@ -28,22 +55,24 @@
                     <button class="btn btn-danger btn-xs p-xxs btn-block" ng-click="calling()"> <i class="fa fa-phone"></i> &nbsp;Call now</button>
                 </div>
                 <div class="clearfix"></div>
-            </div>
-            <div class="col-lg-12 p-sides-xs">
-                <div class="col-xs-12 p-sides-xs">
-                    <div class="hr-line-dashed"></div>
+            </div>-->
+
+            <div class="col-lg-12 p-sides-none">
+                <div class="col-xs-12 p-sides-none">
+                    <!--<div class="hr-line-dashed"></div>-->
+                    <hr />
                 </div>
             </div>
                 <div class="col-lg-10 text-left p-t-md ">
-                    <blockquote>
+                    <!--<blockquote>-->
                         <p class="text-j" style="font-size: 14px;"> {{centerDetails.about}}</p>
-                    </blockquote>
+                    <!--</blockquote>-->
                 </div>
                 <div class="col-lg-10">
                     <div class="col-xs-12 text-left p-sides-none" style="line-height: 32px;">
                         <div class="col-xs-12 p-sides-none">
-                            <i class="fa fa-clock-o"></i> &nbsp;
-                            <span>Hours&nbsp;&nbsp;{{centerDetails.time}} | {{activity.workDays}}</span>
+                            <i class="fa fa-clock-o" style="color: #ABACB0;"></i> &nbsp;
+                            <span style="color: #5F6265;font-weight: 500;">Hours:&nbsp;&nbsp;{{centerDetails.time}} , {{centerDetails.workDays}}</span>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -51,48 +80,71 @@
             </div>
         <div class="col-lg-10">
             <div class="col-lg-12">
-                <div class="hr-line-dashed"></div>
+                <!--<div class="hr-line-dashed"></div>-->
+                <hr />
             </div>
         </div>
         <div class="col-xs-12 col-centered p-sides-xs">
-            <div class="col-xs-12 ">
-                <span><strong>Activities/Courses</strong></span>
-                <div class="col-xs-12">
+            <div class="col-xs-12 text-left p-b-xxs">
+                <span><strong>ACTIVITIES</strong></span>
+                <!--<div class="col-xs-12">
                     <div class="form-group  has-feedback">
                         <input type="text" class="form-control m-b-none" ng-model="search">
                         <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" ng-click=""></span>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="col-xs-12 p-sides-none">
                 <accordion close-others="oneAtATime">
-                    <accordion-group ng-repeat="activity in centerDetails.activities">
-                        <accordion-heading is-open="status.open">
-                            {{activity.title}}<i class="pull-right glyphicon" 
-                            ng-class="{'glyphicon-chevron-right': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    <accordion-group ng-repeat="activity in centerDetails.activities" ng-init="status = {isOpen: false}" is-open="status.isOpen">
+                        <accordion-heading is-open="status.open" >
+                            <!-- 'glyphicon-plus-sign': status.open, -->
+                            <span>{{activity.title}}</span><i class="pull-right glyphicon " style="color: #C8DFE7;"
+                                                 ng-class="{ 'glyphicon-plus-sign': !status.isOpen}"></i>
                         </accordion-heading>
-                        <div class="bs-callout bs-callout-danger" style="border-left-color: #C8DDE6!important;border-bottom: 0;border-right: 0;border-top: 0;padding-left: 2px;">
-                            <div class="col-xs-12 text-left p-sides-xs">
-                                <div class="col-xs-5 p-sides-none">
-                                    <div><strong class="a_title">{{activity.title}}</strong></div>
-                                    <div><small class="text-muted">{{activity.category}}</small></div>
-                                    <div>
-                                        <i class="fa fa-gbp"></i> &nbsp;{{activity.price}}
-                                        <small class="text-muted" style="font-size: 10px; vertical-align: 1px;">*Ageactivity Members</small>
+                        <div class="bs-callout bs-callout-danger" style="border-left-color: #C8DDE6!important;border-bottom: 0;border-right: 0;border-top: 0;padding-left: 2px;padding-right: 0;" ui-sref="inner.activityDetails({activityId:activity.activityId})">
+                            <div class="col-xs-12  p-sides-xs">
+                                <div class="col-xs-12  p-sides-none">
+                                    <div class="col-xs-7 text-left p-sides-none">
+                                        <div>
+                                            <strong class="a_title">{{activity.title}}</strong>
+                                        </div>
+                                        <div>
+                                            <small class="text-muted">{{activity.category}}</small>
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-gbp"></i> &nbsp;{{activity.price}}
+                                            <small class="text-muted" style="font-size: 10px; vertical-align: 1px;">*Ageactivity Members</small>
+                                        </div>
+                                        <!--<div class="text-muted" style="font-size: 14px;">{{activity.registration}}</div>-->
                                     </div>
-                                    <div class="text-muted" style="font-size: 14px;">{{activity.registration}}</div>
-                                </div>
-                                <div class="col-xs-7 p-sides-none">
-                                    <div class="text-right text-muted ">{{formatDate(activity.startDate) | date:'MMM dd'}}</div>
-                                    
-                                    <div class="text-right" style="padding-top: 40px;font-size: 12px;">
-                                        <span class="text-muted col-xs-6 p-sides-xs"><i class="fa fa-refresh"></i>&nbsp;{{activity.attendStatus}}</span>
-                                        <span class="text-muted col-xs-3 p-sides-none"><i class="fa fa-clock-o"></i>&nbsp;{{activity.startTime}}</span>
-                                        <span class="text-muted col-xs-3 p-sides-none"><i class="fa fa-clock-o"></i>&nbsp;{{activity.endTime}}</span>
-                                        <div class="clearfix"></div>
+                                    <div class="col-xs-5 p-sides-none">
+                                      
+                                        <div class="text-right text-muted ">{{formatDate(activity.startDate) | date:'MMM dd'}}</div>
+
+                                        <!--<div class="text-right" style="padding-top: 0; font-size: 12px;">
+                    <span class="text-muted col-xs-6 p-sides-xs"><i class="fa fa-refresh"></i>&nbsp;{{activity.attendStatus}}</span>
+                    <span class="text-muted col-xs-3 p-sides-none"><i class="fa fa-clock-o"></i>&nbsp;{{activity.duration}}</span>
+                    <span class="text-muted col-xs-3 p-sides-none"><i class="fa fa-clock-o"></i>&nbsp;{{activity.endTime}}</span>
+                    <div class="clearfix"></div>
+                </div>-->
                                     </div>
-                                    
                                 </div>
+                                <!-- Down Split -->
+                                <div class="col-xs-12 p-sides-none">
+                                    <div class="col-xs-5 text-left p-sides-none">
+                                        <div class="text-muted" style="font-size: 14px;font-weight: 700;">{{activity.registration}}</div>
+                                    </div>
+                                    <div class="col-xs-7 p-sides-none" style="font-size: 1em;">
+                                        <div class="text-right" style="padding-top: 0; ">
+                                            <span class="text-muted col-xs-6 p-sides-xs"><i class="fa fa-refresh"></i>&nbsp;{{activity.attendStatus}}</span>
+                                            <span class="text-muted col-xs-2 text-center p-sides-none"><i class="fa fa-clock-o"></i>&nbsp;{{activity.duration}}</span>
+                                            <span class="text-muted col-xs-4 p-sides-none"><i class="fa fa-clock-o"></i>&nbsp;{{activity.endTime}}</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </accordion-group>

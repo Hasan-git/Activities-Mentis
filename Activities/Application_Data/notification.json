@@ -3,15 +3,26 @@
     "notificationId": 1,
     "userId": 1,
     "activityId": 3,
-    "discritpion": "New Tai-Chi class started in Holborn Community center . Congratulaions !",
-    "reservationDate": "2016-02-02"
+    "discritpion": "<span>New Tai-Chi class started in <strong>Holborn Community center</strong> . Congratulaions !</span>",
+    "reservationDate": "2016-02-02",
+    "type": "flag"
     
   },
   {
     "notificationId": 2,
     "userId": 1,
-    "activityId": null,
-    "discritpion": "People that are going to YOGA at Castlehaven Centre are now attending YOGA at Washborn",
-    "reservationDate": "2016-02-02"
+    "activityId": 4,
+    "discritpion": "<span> FYI: <strong>4 People</strong> that are going to <strong>YOGA</strong> at <strong>Castlehaven Centre</strong> are now attending YOGA at <strong>Washborn</strong>.</span>",
+    "reservationDate": "2016-02-02",
+    "type": "users"
   }  
+  ,
+  {
+    "notificationId": 3,
+    "userId": 1,
+    "activityId": 3,
+    "discritpion": "<span> Your saved event<strong>Tai Chi</strong> is due to start in <strong>4 days</strong>.</span>",
+    "reservationDate": "2016-02-02",
+    "type": "bookmark"
+  }
 ]

@@ -8,111 +8,93 @@
 
 <link href="../Scripts/calendar/css/style.css" rel="stylesheet" />
 <link href="../Scripts/calendar/css/clndr.css" rel="stylesheet" />
+<style>
 
+
+</style>
 
 <!--<script src="../Scripts/calendar/js/jquery-1.11.1.min.js"></script>-->
 <div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
 
     <div class="main  hvr-float-shadow">
-        <div class="slide">
-            <!--<div id="dd1" class="wrapper-dropdown-3" tabindex="1">
-                <span><img src="images/nav.png" alt="" /></span>
-                <ul class="dropdown">
-
-                    <li><a href="#">View Profile </a></li>
-                    <li><a href="#">Lists</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Activity log</a></li>
-                    <li><a href="#">Report a problem</a></li>
-                    <li><a href="#">Log Out</a></li>
-                </ul>-->
-                <!--<script type="text/javascript">
-													function DropDown(el) {
-														this.dd = el;
-														this.initEvents();
-													}
-													DropDown.prototype = {
-														initEvents : function() {
-															var obj = this;
-
-															obj.dd.on('click', function(event){
-																$(this).toggleClass('active');
-																event.stopPropagation();
-															});
-														}
-													}
-													$(function() {
-
-														var dd = new DropDown( $('#dd1') );
-
-														$(document).click(function() {
-															// all dropdowns
-															$('.wrapper-dropdown-3').removeClass('active');
-														});
-
-													});
-                </script>
-            </div>-->
-
+        <!-- background-color: rgba(204, 204, 204, 0); -->
+        <div class="slide" style="border-left: 0;background-color: rgba(204, 204, 204, 0);padding-bottom: 0;">
             <div class="callbacks_container">
                 <ul class="rslides callbacks callbacks1" id="slider4">
-                    <!--<li>
-                        <div class="banner-info">
-                            <h3>Fri Day</h3>
-                            <p>April 3rd</p>
-                            <img src="images/1.jpg" alt="" />
-                        </div>
-                    </li>
                     <li>
-                        <div class="banner-info">
-                            <h3>Sat Day</h3>
-                            <p>April 3rd</p>
-                            <img src="images/2.jpg" alt="" />
-                        </div>
-                    </li>-->
-                    <li>
-                        <div class="banner-info">
-                            <h3>Sun Day</h3>
-                            <p>April 3rd</p>
-                            <img src="images/1.jpg" alt="" />
+                        <div class="banner-info" style="margin: 0;">
+                            <h6 style="background-color: #00786C; color: white; padding: 10px; text-align: center;font-size: 1.3em;">
+                                Friday
+                            </h6>
+                            <div style="background: #009788; padding: 10px; text-align: center;">
+                                <p style="margin: 0;"><span class="text-uppercase" style="font-size: 1.5em;">{{date | date:'MMM'}}</span></p>
+                                <p style="margin: 0;"><span style="FONT-WEIGHT: bolder;font-size: 3em;">{{date | date:'dd'}}</span></p>
+                                <p style="margin: 0;"><span style="FONT-WEIGHT: bolder;font-size: 1.5em;">{{date | date:'yyyy'}}</span></p>
+                            </div>
+                            
+                            
                         </div>
                     </li>
                 </ul>
             </div>
             <!--banner-Slider-->
             <script src="js/responsiveslides.min.js"></script>
-            <script>
-						//// You can also use "$(window).load(function() {"
-						//$(function () {
-						//  // Slideshow 4
-						//  $("#slider4").responsiveSlides({
-						//auto: true,
-						//pager: true,
-						//nav:false,
-						//speed: 500,
-						//namespace: "callbacks",
-						//before: function () {
-						//  $('.events').append("<li>before event fired.</li>");
-						//},
-						//after: function () {
-						//  $('.events').append("<li>after event fired.</li>");
-						//}
-						//  });
 
-						//});
-            </script>
             <div class="clear"></div>
-            <!--<ul class=" side-icons">
-                <li><a class="fb" href="#"></a></li>
-                <li><a class="twitt" href="#"></a></li>
-                <li><a class="goog" href="#"></a></li>
-            </ul>-->
+
 
         </div>
         <div class="mini-cal">
-            <div class="calender">
-                <div class="column_right_grid calender">
-                    <div class="cal1"><div class="clndr"><div class="clndr-controls"><div class="clndr-control-button"><p class="clndr-previous-button">previous</p></div><div class="month">September 2015</div><div class="clndr-control-button rightalign"><p class="clndr-next-button">next</p></div></div><table class="clndr-table" border="0" cellspacing="0" cellpadding="0"><thead><tr class="header-days"><td class="header-day">S</td><td class="header-day">M</td><td class="header-day">T</td><td class="header-day">W</td><td class="header-day">T</td><td class="header-day">F</td><td class="header-day">S</td></tr></thead><tbody><tr><td class="day past adjacent-month last-month calendar-day-2015-08-30"><div class="day-contents">30</div></td><td class="day past adjacent-month last-month calendar-day-2015-08-31"><div class="day-contents">31</div></td><td class="day past calendar-day-2015-09-01"><div class="day-contents">1</div></td><td class="day past calendar-day-2015-09-02"><div class="day-contents">2</div></td><td class="day past calendar-day-2015-09-03"><div class="day-contents">3</div></td><td class="day past calendar-day-2015-09-04"><div class="day-contents">4</div></td><td class="day past calendar-day-2015-09-05"><div class="day-contents">5</div></td></tr><tr><td class="day past calendar-day-2015-09-06"><div class="day-contents">6</div></td><td class="day past calendar-day-2015-09-07"><div class="day-contents">7</div></td><td class="day past calendar-day-2015-09-08"><div class="day-contents">8</div></td><td class="day past calendar-day-2015-09-09"><div class="day-contents">9</div></td><td class="day past event calendar-day-2015-09-10"><div class="day-contents">10</div></td><td class="day past event calendar-day-2015-09-11"><div class="day-contents">11</div></td><td class="day past event calendar-day-2015-09-12"><div class="day-contents">12</div></td></tr><tr><td class="day past event calendar-day-2015-09-13"><div class="day-contents">13</div></td><td class="day past event calendar-day-2015-09-14"><div class="day-contents">14</div></td><td class="day past calendar-day-2015-09-15"><div class="day-contents">15</div></td><td class="day past calendar-day-2015-09-16"><div class="day-contents">16</div></td><td class="day past calendar-day-2015-09-17"><div class="day-contents">17</div></td><td class="day past calendar-day-2015-09-18"><div class="day-contents">18</div></td><td class="day past calendar-day-2015-09-19"><div class="day-contents">19</div></td></tr><tr><td class="day past calendar-day-2015-09-20"><div class="day-contents">20</div></td><td class="day past event calendar-day-2015-09-21"><div class="day-contents">21</div></td><td class="day past event calendar-day-2015-09-22"><div class="day-contents">22</div></td><td class="day past event calendar-day-2015-09-23"><div class="day-contents">23</div></td><td class="day past calendar-day-2015-09-24"><div class="day-contents">24</div></td><td class="day past calendar-day-2015-09-25"><div class="day-contents">25</div></td><td class="day today calendar-day-2015-09-26"><div class="day-contents">26</div></td></tr><tr><td class="day calendar-day-2015-09-27"><div class="day-contents">27</div></td><td class="day calendar-day-2015-09-28"><div class="day-contents">28</div></td><td class="day calendar-day-2015-09-29"><div class="day-contents">29</div></td><td class="day calendar-day-2015-09-30"><div class="day-contents">30</div></td><td class="day adjacent-month next-month calendar-day-2015-10-01"><div class="day-contents">1</div></td><td class="day adjacent-month next-month calendar-day-2015-10-02"><div class="day-contents">2</div></td><td class="day adjacent-month next-month calendar-day-2015-10-03"><div class="day-contents">3</div></td></tr></tbody></table></div></div>
+            <div class="calender" style="padding-top: 0;">
+                <div class="column_right_grid calender" style="padding-top: 0;">
+                    <div class="cal1">
+                        <div class="clndr">
+                            <div class="clndr-controls" style="padding-top: 0!important;">
+                                <div class="clndr-control-button">
+                                    <p class="clndr-previous-button">previous</p>
+                                </div>
+                                <div class="month" >September 2015</div>
+                                <div class="clndr-control-button rightalign">
+                                    <p class="clndr-next-button">next</p>
+                                </div>
+                            </div><table class="clndr-table" border="0" cellspacing="0" cellpadding="0"><thead><tr class="header-days"><td class="header-day">S</td><td class="header-day">M</td><td class="header-day">T</td><td class="header-day">W</td><td class="header-day">T</td><td class="header-day">F</td><td class="header-day">S</td></tr></thead><tbody><tr><td class="day past adjacent-month last-month calendar-day-2015-08-30">
+                                <div class="day-contents">30</div></td><td class="day past adjacent-month last-month calendar-day-2015-08-31">
+                                <div class="day-contents">31</div></td><td class="day past calendar-day-2015-09-01">
+                                <div class="day-contents">1</div></td><td class="day past calendar-day-2015-09-02">
+                                <div class="day-contents">2</div></td><td class="day past calendar-day-2015-09-03">
+                                <div class="day-contents">3</div></td><td class="day past calendar-day-2015-09-04">
+                                <div class="day-contents">4</div></td><td class="day past calendar-day-2015-09-05">
+                                <div class="day-contents">5</div></td></tr><tr><td class="day past calendar-day-2015-09-06">
+                                <div class="day-contents">6</div></td><td class="day past calendar-day-2015-09-07">
+                                <div class="day-contents">7</div></td><td class="day past calendar-day-2015-09-08">
+                                <div class="day-contents">8</div></td><td class="day past calendar-day-2015-09-09">
+                                <div class="day-contents">9</div></td><td class="day past event calendar-day-2015-09-10">
+                                <div class="day-contents">10</div></td><td class="day past event calendar-day-2015-09-11">
+                                <div class="day-contents">11</div></td><td class="day past event calendar-day-2015-09-12">
+                                <div class="day-contents">12</div></td></tr><tr><td class="day past event calendar-day-2015-09-13">
+                                <div class="day-contents">13</div></td><td class="day past event calendar-day-2015-09-14">
+                                <div class="day-contents">14</div></td><td class="day past calendar-day-2015-09-15">
+                                <div class="day-contents">15</div></td><td class="day past calendar-day-2015-09-16">
+                                <div class="day-contents">16</div></td><td class="day past calendar-day-2015-09-17">
+                                <div class="day-contents">17</div></td><td class="day past calendar-day-2015-09-18">
+                                <div class="day-contents">18</div></td><td class="day past calendar-day-2015-09-19">
+                                <div class="day-contents">19</div></td></tr><tr><td class="day past calendar-day-2015-09-20">
+                                <div class="day-contents">20</div></td><td class="day past event calendar-day-2015-09-21">
+                                <div class="day-contents">21</div></td><td class="day past event calendar-day-2015-09-22">
+                                <div class="day-contents">22</div></td><td class="day past event calendar-day-2015-09-23">
+                                <div class="day-contents">23</div></td><td class="day past calendar-day-2015-09-24">
+                                <div class="day-contents">24</div></td><td class="day past calendar-day-2015-09-25">
+                                <div class="day-contents">25</div></td><td class="day today calendar-day-2015-09-26">
+                                <div class="day-contents">26</div></td></tr><tr><td class="day calendar-day-2015-09-27">
+                                <div class="day-contents">27</div></td><td class="day calendar-day-2015-09-28">
+                                <div class="day-contents">28</div></td><td class="day calendar-day-2015-09-29">
+                                <div class="day-contents">29</div></td><td class="day calendar-day-2015-09-30">
+                                <div class="day-contents">30</div></td><td class="day adjacent-month next-month calendar-day-2015-10-01">
+                                <div class="day-contents">1</div></td><td class="day adjacent-month next-month calendar-day-2015-10-02">
+                                <div class="day-contents">2</div></td><td class="day adjacent-month next-month calendar-day-2015-10-03">
+                                <div class="day-contents">3</div></td></tr></tbody></table>
+                        </div>
+                    </div>
                 </div>
                 <div class="cal-pos a">
                     <ul>
@@ -131,34 +113,31 @@
         <div class="clear"></div>
     </div>
 
+    <script>
+        $(document).ready(function () {
+
+            $("div").click(function () {
+
+                var thisOne = $(".calendar-day-2016-04-04");
+                if (!thisOne.children().hasClass('day-event-badge')) {
+                    thisOne.children().addClass("day-event-badge");
+                    thisOne.children().append('<span class="badge" style="position: absolute;background-color: rgba(204, 204, 204, 0);color: #DF4C79;margin-top: 21px;font-size: 1.4em;">1</span>');
+                }
 
 
+                var thisz = $(".calendar-day-2016-04-08");
+                if (!thisz.children().hasClass('day-event-badge')) {
+                    thisz.children().addClass("day-event-badge");
+                        thisz.children().append('<span class="badge" style="position: absolute;background-color: rgba(204, 204, 204, 0);color: #DF4C79;margin-top: 21px;font-size: 1.4em;">2</span>');
+                }
+                
+                
+            });
+            
+        });
 
-    <!--<div class="row">
-        <div class="col-sm-12">
-            <div class="well well-sm col-centered" style="width: 300px;">
-                <datepicker ng-model="dt" show-weeks="true" class=""></datepicker>
+       
+    </script>
 
-            </div>
-            <div class="col-xs-10 col-xs-offset-1 p-t-xs">
-                <blockquote>
-                    <p>Event 1.</p>
-                    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                </blockquote>
-
-                <blockquote>
-                    <p>Event 2.</p>
-                    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                </blockquote>
-                <blockquote>
-                    <p>Event 3.</p>
-                    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                </blockquote>
-                <blockquote>
-                    <p>Event 4.</p>
-                    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                </blockquote>
-            </div>
-        </div>
-    </div>-->
+    
 </div>

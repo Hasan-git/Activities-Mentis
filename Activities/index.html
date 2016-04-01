@@ -5,7 +5,10 @@
     <meta charset="utf-8"/>
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Alpha Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
     <!-- Font Awesome -->
     <link href="Content/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
@@ -19,7 +22,8 @@
 
     <!-- Bootstrap and Fonts -->
     <link href="Content/bootstrap.css" rel="stylesheet"/>
-    <link href='https://fonts.googleapis.com/css?family=Righteous|Patua+One|Lobster|Lobster+Two|Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Righteous|Patua+One|Lobster|Lobster+Two|Roboto+Condensed|Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,700italic,900italic,300,100italic,100,300italic,900,500italic' rel='stylesheet' type='text/css'>
 
     <!-- Custom StyleSheet -->
     <link href="Content/style.css" rel="stylesheet" />
@@ -31,19 +35,20 @@
 <!--<div ng-include="'views/common/info.html'"></div>-->
 
     <!-- Device Container-->
-<div class="container text-center mainContainer" id="mainContainer" resize>
+<div class="container text-center mainContainer" style="margin-left: 0;margin-right: 0;max-width: 2000px !important;" id="mainContainer" resize>
     
     <!-- Header -->
     <div ng-include="'views/common/header.html'"></div>
 
     <!-- Body -->
-    <div class="uiview" ui-view></div>
+    <div class="uiview" ui-view ></div>
 </div>
 
 
 
 <!-- jQuery -->
 <script src="Scripts/jquery-1.9.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 
 <!-- Angular scripts-->
 <script src="Scripts/angular.min.js"></script>
