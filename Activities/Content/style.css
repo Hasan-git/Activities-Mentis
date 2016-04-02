@@ -6,11 +6,15 @@
 @media screen and (min-width: 766px) {
     .font-medium {
         font-size: medium;
-        /*font-size: x-large;*/
     }
     .font-larg {
         font-size: large;
-        /*font-size: x-large;*/
+    }
+    .font-x-larg {
+        font-size: x-large;
+    }
+    .font-xx-larg {
+        font-size: xx-large;
     }
     .text-xxs {
             font-size: 0.7em!important;
@@ -29,6 +33,9 @@
     }
     .title-h4 {
         font-size: 1.8em!important;
+    }
+    .line-h-sm {
+        line-height: 4em!important;
     }
     h4{
         font-size: 1.4em!important;
@@ -54,6 +61,7 @@
     .btn {
         padding: 1.1em !important;
         font-size: 1.2em !important;
+        font-weight: 700;
     }
     .btn-less {
             padding: 0.2em !important;
@@ -61,13 +69,43 @@
     .btn-less-xs {
         padding: 0.7em !important;
     }
+    .btn-less-xxxs {
+        padding: 0.2em !important;
+    }
 
-
+    .sm-p-t-xxs {
+        padding-top: 10%;
+    }
+    .sm-p-t-xs {
+        padding-top: 15%;
+    }
+    .sm-p-t-sm {
+        padding-top: 20%;
+    }
+    .sm-p-t-md {
+        padding-top: 25%;
+    }
+    .sm-p-t-lg {
+        padding-top: 30%;
+    }
+    .sm-p-t-xlg {
+        padding-top: 35%;
+    }
+    .panel-text-map {
+        font-size: 1.1em!important;
+    }
 }
 @media screen and (max-width: 765px) {
     .mainview {
      
         font-size: 1em!important;
+    }
+    .panel-text-map {
+        font-size: 0.7em!important;
+    }
+
+    .xs-m-r-xs {
+        margin-right: 5px;
     }
 }
 

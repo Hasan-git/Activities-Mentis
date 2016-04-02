@@ -230,7 +230,7 @@ function map($scope, toaster, $stateParams, activitiesRepo) {
                 $scope.tripDetails = response.routes[0].legs[0];
                 directionsDisplay.setDirections(response);
             } else {
-                window.alert('Directions request failed due to ' + status);
+               // window.alert('Directions request failed due to ' + status);
             }
         });
     }
@@ -262,11 +262,11 @@ function map($scope, toaster, $stateParams, activitiesRepo) {
                         }
                     } 
                 } else {
-                    alert('Geocoder failed due to: ' + status);
+                    //alert('Geocoder failed due to: ' + status);
                 }
             });
         }, function (error) {
-            alert('Unable to get location: ' + error.message);
+           // alert('Unable to get location: ' + error.message);
         });
 
         var directionsService = new google.maps.DirectionsService;
