@@ -274,6 +274,8 @@ angular
                 console.log("error", error);
             });
         });
+
+
         var deviceHeight = $(window).height();
         $('.mainContainer').css({ 'height': (deviceHeight) + 'px' });
 

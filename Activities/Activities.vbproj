@@ -148,6 +148,7 @@
     <Content Include="Scripts\calendar\js\responsiveslides.min.js" />
     <Content Include="Scripts\calendar\js\site.js" />
     <Content Include="Scripts\calendar\js\underscore-min.js" />
+    <Content Include="Scripts\plugin\flowtext.js" />
     <Content Include="Scripts\plugin\toaster-0.4.16.min.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

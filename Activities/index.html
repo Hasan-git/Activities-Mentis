@@ -26,7 +26,8 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,700italic,900italic,300,100italic,100,300italic,900,500italic' rel='stylesheet' type='text/css'>
 
     <!-- Custom StyleSheet -->
-    <link href="Content/style.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet"/>
+
 </head>
 <body ng-controller="MainCtrl" class="noselect">
 
@@ -41,14 +42,17 @@
     <div ng-include="'views/common/header.html'"></div>
 
     <!-- Body -->
-    <div class="uiview" ui-view ></div>
+    <div class="uiview mainview" ui-view ></div>
 </div>
 
 
 
 <!-- jQuery -->
 <script src="Scripts/jquery-1.9.0.min.js"></script>
+    
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+   
 
 <!-- Angular scripts-->
 <script src="Scripts/angular.min.js"></script>
@@ -87,7 +91,24 @@
         $(".mainContainer").innerWidth();
         $(".mainContainer").innerHeight();
 
+
+        //$(function () {
+        //    $(".mainview , h4, h5 ,h6 ,h3, h2").flowtype({
+        //        fontRatio: 30,
+        //        maxFont: 40,
+        //        minFont: 16
+        //    });
+        //});
+
+        ;
     });
+
+
+
+
+
+   
+    
 </script>
 </body>
 </html>
