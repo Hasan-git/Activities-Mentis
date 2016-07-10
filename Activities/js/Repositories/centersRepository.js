@@ -115,11 +115,39 @@ function centersRepo($localForage, $q, activitiesRepo) {
         return deferred.promise;
     }
 
+    var getCenterWithActivities = function (id) {
+
+        var deferred = $q.defer();
+        var centersArray = [];
+            getCenter(id).then(function (centers) {
+                
+                    var central = {};
+                    central = centers;
+                    
+                    deferred.resolve(centers);
+                    activitiesRepo.centerActivitiesById(centers.centerId).then(function (da) {
+                            central["activities"] = da;
+                           
+                        });// push activities to center object
+                        centersArray.push(central);
+
+                        $q.all([centersArray]).then(function (da) { deferred.resolve(da[0]); });
+                 
+               
+            });// get  center
+       
+
+        return deferred.promise;
+    }
+
     return {
         getAllCenters: getAllCenters,
         getCenter: getCenter,
-        getCentersInjActivities: getCentersInjActivities
+        getCentersInjActivities: getCentersInjActivities,
+        getCenterWithActivities: getCenterWithActivities
     }
+
+
 }
 
 

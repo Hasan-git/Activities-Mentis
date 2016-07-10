@@ -55,24 +55,26 @@ function login($scope, loginService, $location, currentUser, $state, $rootScope,
         
     //});
 
-    console.log($rootScope.tostate);
-    console.log($rootScope.tostateParams);
+   
     $scope.username = "json";
     $scope.password = "abc123";
     $scope.submitLogin = function () {
         var username = $scope.username;
         var password = $scope.password;
-        
+
         loginService.check(username, password).then(function(data) {
             currentUser.setProfile(data.username, data.id, data.name);
             $rootScope.globalName = data.name;
             //$state.go('inner.main_page');
           
 
-            if ($rootScope.tostate !== null) {
-                $state.go($rootScope.tostate, $rootScope.tostateParams);
-            } else {
+            if ($rootScope.tostate == false) {
                 $state.go('inner.q1');
+                
+            } else {
+                
+               
+                $state.go($rootScope.tostate, $rootScope.tostateParams);
             }
                 
             

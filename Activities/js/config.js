@@ -120,7 +120,7 @@
             resolve: {
                 resolvedCenterDetails: function ($stateParams, centersRepo) {
                     if ($stateParams.center != null) {
-                        return centersRepo.getCenter($stateParams.center).then(function (data) {
+                        return centersRepo.getCenterWithActivities($stateParams.center).then(function (data) {
                             return data;
                         });
                     }
@@ -286,18 +286,18 @@ angular
                     $state.go(a, params);
                 };
             }
-            console.log(to.loginRequired);
+            
             var user = currentUser.getProfile();
             if (user.isLoggedIn === false) {
 
                 if (to.name !== 'home.login') {
-                    if (to.loginRequired === true) {
+                    if (to.loginRequired === true && toParams != null) {
                         $rootScope.tostate = to.name;
                         $rootScope.tostateParams = toParams;
                         $location.path('home/login');
                     } else {
-                        $rootScope.tostate = null;
-                        $rootScope.tostateParams = null;
+                        $rootScope.tostate = false;
+                        $rootScope.tostateParams = false;
                         $location.path('home/landingPage');
                     }
                  
