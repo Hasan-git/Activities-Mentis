@@ -32,7 +32,7 @@
     "logo": "../img/castle.png",
     "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   },
-  {    
+  {
     "centerId": 3,
     "centerName": "Kentish Town Community Centre",
     "street": "17 Busby Place London NW5 2SP",
@@ -43,10 +43,96 @@
     },
     "providing": "Activities/Sessions",
     "speciality": "Library",
-    "workDays":"Mon - Fri",
+    "workDays": "Mon - Fri",
     "courseType": "Session",
     "time": "10:00 - 18:30",
     "logo": "../img/kentish.png",
     "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
+  },
+  {
+    "centerId": 4,
+    "centerName": "Abbey Community Centre",
+    "street": "London, NW6 4DJ United Kingdom",
+    "phone": 7447932564 ,
+    "latLng": {
+      "latitude": 51.5394784,
+      "longitude": -0.18870370000001913
+    },
+    "providing": "Games, keep fit, Dancing...",
+    "speciality": "Library",
+    "workDays": "Mon - Fri",
+    "courseType": "Session",
+    "time": "09:30 - 17:00",
+    "logo": "../img/abbey.jpg",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
+  },
+  {
+    "centerId": 5,
+    "centerName": "Henderson Court Resource Centre",
+    "street": "2 Fitzjohn's Ave, London NW3, UK",
+    "phone": 2077946588 ,
+    "latLng": {
+      "latitude": 51.54663069999999,
+      "longitude": -0.17589269999996304
+    },
+    "providing": "Arts, crafts, writing ...",
+    "speciality": "Library",
+    "workDays": "Mon - Fri",
+    "courseType": "Session",
+    "time": "10:00 - 16:00",
+    "logo": "../img/Henderson.png",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
+  },
+  {
+    "centerId": 6,
+    "centerName": "Opening Doors London",
+    "street": "Kings Cross, London WC1H 9NA, UK",
+    "phone": 2072390400,
+    "latLng": {
+      "latitude": 51.5250447,
+      "longitude": -0.12793759999999565
+    },
+    "providing": "Club, Games, LGBT",
+    "speciality": "Library",
+    "workDays": "Mon - Fri",
+    "courseType": "Session",
+    "time": "9:00 - 18:30",
+    "logo": "../img/odl.jpg",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
+  },
+  {
+    "centerId": 7,
+    "centerName": "Talacre Community Sports Centre",
+    "street": "Dalby St, London NW5 3ED, UK",
+    "phone": 2079748765,
+    "latLng": {
+      "latitude": 51.5467676,
+      "longitude": -0.14690700000005563
+    },
+    "providing": "Daytime classes, Exercise, keep fit",
+    "speciality": "Library",
+    "workDays": "Mon - Fri",
+    "courseType": "Session",
+    "time": "9:00 - 18:30",
+    "logo": "../img/talacre.png",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
+  },
+  {
+    "centerId": 8,
+    "centerName": "North London Cares",
+    "street": "Kings Cross, London NW1 2LS, UK",
+    "phone": 2071183838,
+    "latLng": {
+      "latitude": 51.52811519999999,
+      "longitude": -0.138364700000011
+    },
+    "providing": "Club, Cookery, food and drink",
+    "speciality": "Library",
+    "workDays": "Mon - Fri",
+    "courseType": "Session",
+    "time": "9:00 - 18:30",
+    "logo": "../img/lndnCares.png",
+    "about": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
   }
+
 ]

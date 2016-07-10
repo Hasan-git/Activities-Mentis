@@ -35,8 +35,12 @@ function MainCtrl($scope, $window) {
         }
     }
 }//End MainCtrl
+function landingPage($scope, $state) {
+    
 
-function login($scope, loginService, $location, currentUser, $state, $rootScope, toaster, notificationsRepo) {
+}
+
+function login($scope, loginService, $location, currentUser, $state, $rootScope, toaster, notificationsRepo, $stateParams) {
 
 
     //notificationsRepo.getNotificationsByUserId(1).then(function (data) {
@@ -50,8 +54,9 @@ function login($scope, loginService, $location, currentUser, $state, $rootScope,
     //    }, function (err) { console.log(err); });
         
     //});
-  
-   
+
+    console.log($rootScope.tostate);
+    console.log($rootScope.tostateParams);
     $scope.username = "json";
     $scope.password = "abc123";
     $scope.submitLogin = function () {
@@ -62,10 +67,20 @@ function login($scope, loginService, $location, currentUser, $state, $rootScope,
             currentUser.setProfile(data.username, data.id, data.name);
             $rootScope.globalName = data.name;
             //$state.go('inner.main_page');
-            $state.go('inner.q1');
+          
+
+            if ($rootScope.tostate !== null) {
+                $state.go($rootScope.tostate, $rootScope.tostateParams);
+            } else {
+                $state.go('inner.q1');
+            }
+                
+            
+            
+            
+           //$state.go('inner.q1');
         }, function (error) {
             toaster.pop('error', "Notification", "Wrong Username or Password !", 3000);
-            
         });
 
         //if (index === null) {
@@ -78,6 +93,25 @@ function login($scope, loginService, $location, currentUser, $state, $rootScope,
         //}
     }
 }//End Login
+function register($scope, loginService, $location, currentUser, $state, $rootScope, toaster) {
+    // fake login
+    
+    $scope.submitLogin = function () {
+        $scope.username = "json";
+        $scope.password = "abc123";
+        var username = $scope.username;
+        var password = $scope.password;
+
+        loginService.check(username, password).then(function (data) {
+            currentUser.setProfile(data.username, data.id, data.name);
+            $rootScope.globalName = data.name;
+            
+            $state.go('inner.q1');
+        }, function (error) {
+            toaster.pop('error', "Notification", "Wrong Username or Password !", 3000);
+        });
+    }
+}//End Register
 
 function mainPage($scope) {
     
@@ -415,4 +449,6 @@ angular
     .controller('bookingLicence', bookingLicence)
     .controller('bookingEnrollment', bookingEnrollment)
     .controller('activitiesExposition', activitiesExposition)
+    .controller('landingPage', landingPage)
+    .controller('register', register)
     ;

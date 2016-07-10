@@ -110,6 +110,7 @@
     <Content Include="images\nav.png" />
     <Content Include="img\calendar.gif" />
     <Content Include="img\castle.png" />
+    <Content Include="img\grand.png" />
     <Content Include="img\Head.png" />
     <Content Include="img\Head2.png" />
     <Content Include="img\Head3-compressor.png" />
@@ -118,6 +119,7 @@
     <Content Include="img\kentish.png" />
     <Content Include="img\Logo-menu.png" />
     <Content Include="img\Logo.png" />
+    <Content Include="img\scrabble.jpg" />
     <Content Include="img\user.png" />
     <Content Include="img\venues-compressor.png" />
     <Content Include="img\venues.png" />
@@ -989,6 +991,7 @@
     <Content Include="views\common\content.html" />
     <Content Include="views\common\header.html" />
     <Content Include="views\common\info.html" />
+    <Content Include="views\landingPage.html" />
     <Content Include="views\login.html" />
     <Content Include="views\main_page.html" />
     <Content Include="views\map-centers.html" />

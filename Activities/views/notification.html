@@ -1,0 +1,42 @@
+﻿<div class="container-fluid p-t-xs">
+    <div class="row ">
+        <div class="col-sm-12 col-centered p-sides-none">
+            <div class="col-sm-12">
+                <h4>YOUR ALERTS</h4>
+            </div>
+            <div class="col-sm-12 p-sides-none" ng-click="removeAllnotifications()">
+                <h6 class="" style="color: white; background-color: #019587; padding: 7px 0;margin-bottom: 0px;"><i class="fa fa-check-circle"></i>&nbsp; CLEAR ALL NOTIFICAIONS</h6>
+            </div>
+            <table class="col-xs-12 tableActivities">
+                <tr ng-repeat="notification in notifications" class="pointer">
+                    <td class="text-left" style="border-bottom: 1px solid #ccc; padding: 7px 7px 7px 7px;">
+                        <div class="col-sm-12 p-sides-none">
+                            <div class="col-xs-1" style="padding-right: 0;">
+                                <span>
+                                    <i class="fa text-muted" ng-class="{'fa-bookmark':notification.type==='bookmark','fa-flag':notification.type==='flag','fa-users':notification.type==='users',}"></i>
+                                </span>
+                            </div>
+                            <div class="col-xs-11 p-sides-xs text-lg">
+                                <span dynamic="notification.discritpion"><!--{{notification.discritpion}}--></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            
+                        </div>
+                        <div class="col-sm-12 p-t-sm">
+                            <div class="col-xs-6">
+                                <button class="btn btn-success btn-xs btn-block btn-less-xxxs" ui-sref="inner.activityDetails({activityId:notification.activityId})">GO TO</button>
+                            </div>
+                            <!--ng-click="removeRow($index)"-->
+                            <div class="col-xs-6">
+                                <button class="btn btn-purple btn-xs btn-block btn-less-xxxs" ng-click="dismissNotification(notification.notificationId)">DSSMISS</button>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-show="!notifications.length"><td style="padding-top: 15px;font-weight: 500;"><i class="fa fa-archive fa-lg" style="color: #757373;"></i> No Notifications</td></tr>
+            </table>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

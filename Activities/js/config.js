@@ -5,49 +5,65 @@
         driver: 'localStorageWrapper'
     });
 
-    $urlRouterProvider.otherwise("/home/login");
+    $urlRouterProvider.otherwise("/home/landingPage");
     $stateProvider
 
         .state('home', {
             abstract: true,
             url: "/home",
-            templateUrl: "views/common/content.html"
+            templateUrl: "views/common/content.html",
+            loginRequired: false
+        })
+        .state('home.landingPage', {
+            url: "/landingPage",
+            templateUrl: "views/landingPage.html",
+            controller: landingPage,
+            loginRequired: false
         })
         .state('home.login', {
             url: "/login",
             templateUrl: "views/login.html",
-            controller: login
+            controller: login,
+            loginRequired: false
         })
         .state('home.register', {
             url: "/register",
-            templateUrl: "views/register.html"
+            templateUrl: "views/register.html",
+            controller: register,
+            loginRequired: false
         })
         .state('inner', {
             abstract: true,
             url: "/inner",
-            templateUrl: "views/common/content.html"
+            templateUrl: "views/common/content.html",
+            loginRequired: true
         })
         .state('inner.main_page', {
             url: "/main_page",
             templateUrl: "views/main_page.html",
-            controller: mainPage
+            controller: mainPage,
+            loginRequired: true
         })
         .state('inner.q1', {
             url: "/q1",
-            templateUrl: "views/q1.html"
+            templateUrl: "views/q1.html",
+            loginRequired: true
         })
         .state('inner.q2', {
             url: "/q2",
-            templateUrl: "views/q2.html"
+            templateUrl: "views/q2.html",
+            loginRequired: true
         })
         .state('inner.q3', {
             url: "/q3",
-            templateUrl: "views/q3.html"
+            templateUrl: "views/q3.html",
+            loginRequired: true
         })
         .state('inner.calendar', {
             url: "/calendar",
             templateUrl: "views/calendar.html",
-            controller: calendar
+            controller: calendar,
+            loginRequired: true
         })
         .state('inner.notification', {
             url: "/notification",
@@ -61,13 +77,15 @@
                             return data;
                         });
                 }
-            }
+            },
+            loginRequired: true
 
         })
         .state('inner.activitiesExposition', {
             url: "/activitiesExposition",
             templateUrl: "views/activitiesExposition.html",
-            controller: activitiesExposition
+            controller: activitiesExposition,
+            loginRequired: true
         })
         .state('inner.activitiesExposition.centers', {
             url: "/activitiesExposition",
@@ -79,27 +97,36 @@
                             return data;
                         });
                 }
-            }
+            },
+            loginRequired: true
         })
         .state('inner.activitiesExposition.activities', {
             url: "/activities",
             templateUrl: "views/activities.html",
-            controller: activitiesList
+            controller: activitiesList,
+            loginRequired: true
         })
         .state('inner.centerDetails', {
             url: "/centerDetails/:center",
             templateUrl: "views/centerDetails.html",
             controller: centerDetails,
+            //resolve: {
+            //    resolvedCenterDetails: function ( $stateParams) {
+            //        if ($stateParams.center != null) {
+            //            return $stateParams.center;
+            //        }
+            //    }
+            //}
             resolve: {
-                resolvedCenterDetails: function ( $stateParams) {
+                resolvedCenterDetails: function ($stateParams, centersRepo) {
                     if ($stateParams.center != null) {
-                       
-                       
-                        return $stateParams.center;
-                    
+                        return centersRepo.getCenter($stateParams.center).then(function (data) {
+                            return data;
+                        });
                     }
                 }
-            }
+            },
+            loginRequired: true
 
         })
         .state('inner.activityDetails', {
@@ -117,7 +144,8 @@
                         return null;
                     }
                 }
-            }
+            },
+            loginRequired: true
         })
         .state('inner.bookinglicence', {
             url: "/bookinglicence/:activityId",
@@ -134,7 +162,8 @@
                         return null;
                     }
                 }
-            }
+            },
+            loginRequired: true
         })
     .state('inner.bookingEnrollment', {
         url: "/bookingEnrollment/:activityId",
@@ -151,17 +180,20 @@
                     return null;
                 }
             }
-        }
+        },
+        loginRequired: true
     })
     .state('inner.map', {
         url: "/map?center&activityId",
         templateUrl: "views/map.html",
-        controller: map
+        controller: map,
+        loginRequired: true
     })
     .state('inner.map_centers', {
         url: "/map_centers",
         templateUrl: "views/map_centers.html",
-        controller: map_centers
+        controller: map_centers,
+        loginRequired: true
     })
     ;
 
@@ -174,7 +206,8 @@ angular
     .config(config)
     .run(function ($rootScope, $state, $location, currentUser, dataInitializer,toaster) {
 
-        
+        var postLogInRoute;
+
         $rootScope.$state = $state;
        
         $rootScope.offline = false;
@@ -192,7 +225,7 @@ angular
             
             
 
-            if (to.name == "inner.main_page") {
+            if (to.name === "inner.main_page") {
                 $rootScope.back = false;
             } else {
                 $rootScope.back = true;
@@ -253,13 +286,40 @@ angular
                     $state.go(a, params);
                 };
             }
-
+            console.log(to.loginRequired);
             var user = currentUser.getProfile();
             if (user.isLoggedIn === false) {
-                $location.path('home/login');
+
+                if (to.name !== 'home.login') {
+                    if (to.loginRequired === true) {
+                        $rootScope.tostate = to.name;
+                        $rootScope.tostateParams = toParams;
+                        $location.path('home/login');
+                    } else {
+                        $rootScope.tostate = null;
+                        $rootScope.tostateParams = null;
+                        $location.path('home/landingPage');
+                    }
+                 
+                }
+               
+              // $location.path('home/login');
+              // $location.path('home/landingPage');
             } else {
                 $rootScope.offline = true;
+                
             }
+            $rootScope.headerOff = to.loginRequired === true ? true : false;
+            ////if login required and you're logged out, capture the current path
+            //if ((from.loginRequired && user.isLoggedIn === false) || user.isLoggedIn === false) {
+            //    console.log(from);
+            //  //  $location.path('home/login');
+                
+            //    //$state.go('home.login');
+
+            //} 
+
+
         });
 
         $rootScope.destroyDataBase = function() { dataInitializer.destroyRepo(); };

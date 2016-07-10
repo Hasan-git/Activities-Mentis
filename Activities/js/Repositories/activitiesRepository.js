@@ -42,7 +42,6 @@ function activity($localForage, $q) {
             angular.forEach(data, function (value, key) {
                 if (value.centerName === center) {
                     array.push(value);
-                    
                 }
                 def.resolve(array);
             });

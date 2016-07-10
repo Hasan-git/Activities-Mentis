@@ -21,7 +21,7 @@
             <div class="col-xs-12 p-sides-none ">
                 <table class="col-xs-12 tableActivities m-t-sm">
                     <tr ng-repeat="center in filteredCenters = ( centers | orderBy:sortType:sortReverse | filter:search:strict)" class="pointer">
-                        <td ui-sref="inner.centerDetails({center:center})" style="border-bottom: 1px solid #ccc; padding-bottom: 7px; padding-top: 7px;">
+                        <td ui-sref="inner.centerDetails({center:center.centerId})" style="border-bottom: 1px solid #ccc; padding-bottom: 7px; padding-top: 7px;">
                             <!--<div class="bs-callout bs-callout-danger">-->
                             <div class="col-xs-3 p-sides-none">
                                 <div class="col-xs-12 p-sides-none">
@@ -38,18 +38,15 @@
                                             <strong class="a_title2">{{center.centerName}}</strong>
                                         </h5>
                                     </div>
-                                    <div class="col-xs-10 p-sides-none">
-                                       
+                                    <div class="col-xs-10 p-sides-none font-md">
                                           {{center.speciality}}
-                                      
                                     </div>
                                     <div class="text-muted col-xs-12 p-sides-none">
                                         <span style="font-weight: 600;">{{center.street}}</span>
                                         <div class="p-sides-none pull-right">{{center.distance | fixDigit}} mi</div>
                                     </div>
-                                    
                                 </div>
-                                <div class="text-muted col-xs-12 p-sides-none">
+                                <div class="text-muted col-xs-12 p-sides-none font-md">
                                     <i class="fa fa-shopping-cart"></i>&nbsp;
                                     <span style="font-weight: 500; color: #2F3237;">Activities: </span>
                                       <span style="font-weight: 600; color: #2D2D2D">{{len(center)}}</span>
