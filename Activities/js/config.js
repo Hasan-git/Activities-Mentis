@@ -79,7 +79,6 @@
                 }
             },
             loginRequired: true
-
         })
         .state('inner.activitiesExposition', {
             url: "/activitiesExposition",
@@ -222,13 +221,14 @@ angular
             toaster.clear();
             $rootScope.previousState_name = from.name;
             $rootScope.previousState_params = fromParams;
-            
+
             
 
-            if (to.name === "inner.main_page") {
-                $rootScope.back = false;
-            } else {
-                $rootScope.back = true;
+            if (to.name === "inner.main_page" || to.name === "inner.q1" ) {
+                $rootScope.showBack = false;
+                
+            }else {
+                $rootScope.showBack = true;
                 var a;
                 var params;
                 switch (to.name) {
@@ -240,20 +240,24 @@ angular
                         }
                         break;
                     case 'inner.activitiesExposition':
-                        a = "inner.main_page";
+                        //a = "inner.main_page";
+                        
                         break;
                     case 'inner.activitiesExposition.centers':
-                        a = "inner.main_page";
+                        //a = "inner.main_page";
+                        $rootScope.showBack = false;
                         $rootScope.currentActivities = false;
                         $rootScope.currentVenues = true;
+                        
                         break;
                     case 'inner.centerDetails':
                         a = "inner.activitiesExposition.centers";
                         break;
                     case 'inner.activitiesExposition.activities':
-                        a = "inner.main_page";
+                        //a = "inner.main_page";
                         $rootScope.currentActivities = true;
                         $rootScope.currentVenues = false;
+                        $rootScope.showBack = false;
                         break;
                     case 'inner.activityDetails':
                         a = "inner.activitiesExposition.activities";
@@ -278,6 +282,9 @@ angular
                             params = { center: fromParams.center };
                         }
                         break;
+                    case 'inner.q2':
+                        a = "inner.q1";
+                        break;
                     default:
                         a = from.name;
                         params = toParams;
@@ -286,13 +293,17 @@ angular
                     $state.go(a, params);
                 };
             }
-            
-            var user = currentUser.getProfile();
-            if (user.isLoggedIn === false) {
 
+
+            var user = currentUser.getProfile();
+           
+            if (user.isLoggedIn === false) {
+               
                 if (to.name !== 'home.login') {
+
                     if (to.loginRequired === true && toParams != null) {
-                        $rootScope.tostate = to.name;
+
+                        $rootScope.tostate = from.name === "" ? "inner.q1" : to.name;
                         $rootScope.tostateParams = toParams;
                         $location.path('home/login');
                     } else {
@@ -300,7 +311,6 @@ angular
                         $rootScope.tostateParams = false;
                         $location.path('home/landingPage');
                     }
-                 
                 }
                
               // $location.path('home/login');

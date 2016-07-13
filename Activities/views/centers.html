@@ -6,15 +6,19 @@
         <div class="row " style="padding: 0 15px;">
             <div class="col-xs-12" style="background-color: #EEEEEE; padding-bottom: 5px; padding-top: 5px;">
                 <div class="col-xs-2 p-sides-none">
-                    Sort by:
+                    <!--Sort by:-->
                 </div>
-                <div class="col-xs-8 p-sides-none">
-                    <select ng-model="sortType" style="border: 0;width: 40%;">
+                <div class="col-xs-4 p-sides-none">
+                    <!--col-xs-8-->
+                    <!--<select ng-model="sortType" style="border: 0;width: 40%;">
                         <option value="price">Price</option>
                         <option value="latLng">Distance</option>
-                    </select>
+                    </select>-->
                 </div>
-                <div class="col-xs-2 text-info hidden-sm-up"><i class="fa fa-map-marker" style="color: black;" ui-sref="inner.map_centers"></i></div>
+                <div class="col-xs-6 text-info hidden-sm-up" style="color: #424141!important;font-weight: 600;text-align: right;" ui-sref="inner.map_centers">
+                    <i class="fa fa-map-marker" style="color: black;" ></i>
+                    <span>Map View</span>
+                </div>
             </div>
         </div>
 
@@ -26,7 +30,7 @@
                             <div class="col-xs-3 p-sides-none">
                                 <div class="col-xs-12 p-sides-none">
                                     <div>
-                                        <img src="{{center.logo}}" height="30px" width="40px" class=" col-xs-10 p-sides-none" style="padding-left: 10px;">
+                                        <img src="{{center.logo}}" height="30px" width="40px" class=" col-xs-10 p-sides-none image-responsive" style="padding-left: 10px;">
                                     </div>
                                 </div>
                             </div>

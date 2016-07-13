@@ -60,23 +60,23 @@ function Initializer($localForage, $http, $q) {
         console.log('Checking Repositories...');
         $localForage.getItem('users').then(function (users) {
             if (!users) 
-                deferred.reject('Repo not initialized yet 1');
+                deferred.reject('Repo not initialized yet ');
             else {
                 $localForage.getItem('activities').then(function(activities) {
                     if (!activities) 
-                        deferred.reject('Repo not initialized yet 2');
+                        deferred.reject('Repo not initialized yet ');
                     else {
                         $localForage.getItem('centers').then(function (centers) {
                             if (!centers)
-                                deferred.reject('Repo not initialized yet 3');
+                                deferred.reject('Repo not initialized yet ');
                             else {
                                 $localForage.getItem('bookedActivities').then(function (bookedActivities) {
                                     if (!bookedActivities)
-                                        deferred.reject('Repo not initialized yet 4');
+                                        deferred.reject('Repo not initialized yet ');
                                     else {
                                         $localForage.getItem('notification').then(function (notification) {
                                             if (!notification)
-                                                deferred.reject('Repo not initialized yet 5');
+                                                deferred.reject('Repo not initialized yet ');
                                             else {
                                                 deferred.resolve('Repo already initialized ');
                                                

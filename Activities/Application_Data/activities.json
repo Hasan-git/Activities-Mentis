@@ -1,178 +1,4 @@
-﻿[
-  {
-    "activityId": 1,
-    "centerName": "Holborn Community Association",
-    "street": "7 Phethean Street london BL4 7LJ",
-    "phone": 40759123123,
-    "latLng": {
-      "latitude": 53.555072,
-      "longitude": -2.403002
-    },
-    "price": 0,
-    "registration": "Can join any time",
-    "courseType": "Session",
-    "category": "Health/welbeing",
-    "attendStatus": "Recuring",
-    "attendDays": "Every Day",
-    "dropin": "Drop-in accepted",
-    "title": "Crafts",
-    "startDate": "2016-01-07",
-    "startTime": "12:00",
-    "endTime": "2:30",
-    "duration": "1",
-    "time": "1pm - 3:30pm ",
-    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id. "
-  },
-  {
-    "activityId": 2,
-    "centerId": 1,
-    "centerName": "Holborn Community Association",
-    "street": "10 Malthouse Lane PE26 1SQ",
-    "phone": 40759123123,
-    "latLng": {
-      "latitude": 52.441774,
-      "longitude": -0.120275
-    },
-    "price": 6,
-    "registration": "Can join any time",
-    "courseType": "Session",
-    "category": "Health/welbeing",
-    "attendStatus": "Recuring",
-    "attendDays": "Mon Fri",
-    "dropin": "Drop-in accepted",
-    "title": "Computer Support",
-    "startDate": "2016-02-07",
-    "startTime": "09:00",
-    "endTime": "2:30",
-    "duration": "2",
-    "time": "10am - 12am  ",
-    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
-  },
-  {
-    "activityId": 3,
-    "centerId": 1,
-    "centerName": "Holborn Community Association",
-    "street": "10 Malthouse Lane PE26 1SQ",
-    "phone": 40759123123,
-    "latLng": {
-      "latitude": 52.441774,
-      "longitude": -0.120275
-    },
-    "price": 4,
-    "registration": "Can join any time",
-    "courseType": "Session",
-    "category": "Health/welbeing",
-    "attendStatus": "One-Time",
-    "attendDays": "Mon Fri",
-    "dropin": "Drop-in accepted",
-    "title": "Tai-chi",
-    "startDate": "2016-10-07",
-    "startTime": "16:00",
-    "endTime": "22:30",
-    "duration": "2",
-    "time": "10am - 12am  ",
-    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
-  },
-  {
-    "activityId": 4,
-    "centerId": 2,
-    "centerName": "Castlehaven Community Centre",
-    "street": "63 Emlyn Rd  White City London W12",
-    "phone": 40759123123,
-    "latLng": {
-      "latitude": 51.501386,
-      "longitude": -0.251702
-    },
-    "price": 4,
-    "registration": "Join from start only",
-    "courseType": "Session",
-    "category": "Health/welbeing",
-    "attendStatus": "One-Time",
-    "attendDays": "Mon Fri",
-    "dropin": "Drop-in accepted",
-    "title": "Yoga",
-    "startDate": "2016-08-07",
-    "startTime": "13:00",
-    "endTime": "21:30",
-    "duration": "2",
-    "time": "10am - 12am  ",
-    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
-  },
-  {
-    "activityId": 5,
-    "centerId": 3,
-    "centerName": "Kentish Town Community Centre",
-    "street": "17 Busby Place London NW5 2SP",
-    "phone": 2074823212,
-    "latLng": {
-      "latitude": 51.5482656,
-      "longitude": -0.134346
-    },
-    "price": 3,
-    "registration": "Join from start only",
-    "courseType": "Session",
-    "category": "Health/welbeing",
-    "attendStatus": "One-Time",
-    "attendDays": "Mon Fri",
-    "dropin": "Drop-in accepted",
-    "title": "Art Class",
-    "startDate": "2016-04-01",
-    "startTime": "1:00",
-    "endTime": "2:30",
-    "duration": "2",
-    "time": "10am - 12am  ",
-    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
-  },
-  {
-    "activityId": 6,
-    "centerId": 1,
-    "centerName": "Holborn Community Association",
-    "street": "10 Malthouse Lane PE26 1SQ",
-    "phone": 40759123123,
-    "latLng": {
-      "latitude": 52.441774,
-      "longitude": -0.120275
-    },
-    "price": 6,
-    "registration": "Join from start only",
-    "courseType": "Session",
-    "category": "Health/welbeing",
-    "attendStatus": "Recuring",
-    "attendDays": "Mon Fri",
-    "dropin": "Drop-in accepted",
-    "title": "Bridge Club",
-    "startDate": "2016-04-21",
-    "startTime": "12:00",
-    "endTime": "2:30",
-    "duration": "1",
-    "time": "10am - 12am  ",
-    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
-  },
-  {
-    "activityId": 7,
-    "centerId": 1,
-    "centerName": "Holborn Community Association",
-    "street": "10 Malthouse Lane PE26 1SQ",
-    "phone": 40759123123,
-    "latLng": {
-      "latitude": 52.441774,
-      "longitude": -0.120275
-    },
-    "price": 6,
-    "registration": "Join from start only",
-    "courseType": "Session",
-    "category": "Health/welbeing",
-    "attendStatus": "Recuring",
-    "attendDays": "Mon Fri",
-    "dropin": "Drop-in accepted",
-    "title": "IT",
-    "startDate": "2016-12-17",
-    "startTime": "17:00",
-    "endTime": "18:30",
-    "duration": "3",
-    "time": "10am - 12am  ",
-    "description": "Lorem ipsum dolor sit amet, ex ferri omnesque vix. Id dictas deterruisset duo, feugait theophrastus vix eu. Enim corpora appareat pri eu, ut mei graecis platonem periculis, perfecto scribentur ius id."
-  },
+[
   {
     "activityId": 8,
     "centerId": 4,
@@ -290,31 +116,6 @@
     "attendStatus": "Recuring",
     "attendDays": "Mon Fri",
     "dropin": "Drop-in accepted",
-    "title": "Gentle Dance",
-    "startDate": "2016-07-11",
-    "startTime": "13:30",
-    "endTime": "15:30",
-    "duration": "3",
-    "time": "1:30pm - 3:30pm  ",
-    "description": "Come along for a couple of hours of craft fun. Note: these sessions are not free. Please contact the venue for details of charges (020 7794 6588)"
-  },
-  {
-    "activityId": 13,
-    "centerId": 5,
-    "centerName": "Henderson Court Resource Centre",
-    "street": "London, NW3 6NS United Kingdom",
-    "phone": 2077946588,
-    "latLng": {
-      "latitude": 51.54663069999999,
-      "longitude": -0.17589269999996304
-    },
-    "price": 4,
-    "registration": "Join from start only",
-    "courseType": "Session",
-    "category": "Arts and crafts, Daytime classes, Over 60s",
-    "attendStatus": "Recuring",
-    "attendDays": "Mon Fri",
-    "dropin": "Drop-in accepted",
     "title": "Craft Class",
     "startDate": "2016-07-11",
     "startTime": "13:30",
@@ -324,7 +125,7 @@
     "description": "Come along for a couple of hours of craft fun. Note: these sessions are not free. Please contact the venue for details of charges (020 7794 6588)"
   },
   {
-    "activityId": 14,
+    "activityId": 13,
     "centerId": 5,
     "centerName": "Henderson Court Resource Centre",
     "street": "London, NW3 6NS United Kingdom",
@@ -346,10 +147,10 @@
     "endTime": "15:30",
     "duration": "3",
     "time": "1:30pm - 3:30pm  ",
-    "description": "Come along for a couple of hours of craft fun. Note: these sessions are not free. Please contact the venue for details of charges (020 7794 6588)"
+    "description": "Come along for a fun dancing session."
   },
   {
-    "activityId": 15,
+    "activityId": 14,
     "centerId": 5,
     "centerName": "Henderson Court Resource Centre",
     "street": "London, NW3 6NS United Kingdom",
@@ -361,7 +162,7 @@
     "price": 4,
     "registration": "Join from start only",
     "courseType": "Session",
-    "category": "Dancing, Over 60s",
+    "category": "",
     "attendStatus": "Recuring",
     "attendDays": "Mon Fri",
     "dropin": "Drop-in accepted",
@@ -374,10 +175,10 @@
     "description": " A lovely hour of poetry.Note this is not a free event .please contact the venue for details of charges."
   },
   {
-    "activityId": 16,
+    "activityId": 15,
     "centerId": 5,
     "centerName": "Henderson Court Resource Centre",
-    "street": "London, NW3 6NS United Kingdom",
+    "street": "Lumen Café, 88 Tavistock Place London,WC1H 9RS",
     "phone": 2077946588 ,
     "latLng": {
       "latitude": 51.54663069999999,
@@ -399,7 +200,7 @@
     "description": "if you love music, come along to our music appreciation sessions.Note: this event is not free. please contact the venue for specific details."
   },
   {
-    "activityId": 17,
+    "activityId": 16,
     "centerId": 6,
     "centerName": "Opening Doors London",
     "street": "Kings Cross, London WC1H 9NA",
@@ -424,10 +225,10 @@
     "description": "Come to the Lumen Cafe where the lovely staff will provide space for ODL members to play Bridge and Scrabble. If you’d like to join in a game of Bridge, just bring two packs of playing cards , a pen and scrap paper. Scrabble boards will be provided. Beginners welcome. No need to book. Older members of the LGBT* community welcome.This event will take place every second and fourth Monday of the month."
   },
   {
-    "activityId": 18,
+    "activityId": 17,
     "centerId": 6,
     "centerName": "Opening Doors London",
-    "street": "Kings Cross, London WC1H 9NA",
+    "street": "102 Fitzjohn'sAvenueLondon,NW3 6NSUnited Kingdom",
     "phone": 2072390400 ,
     "latLng": {
       "latitude": 51.5250447,
@@ -446,10 +247,10 @@
     "endTime": "20:30",
     "duration": "3",
     "time": "06:00pm - 08:30pm  ",
-    "description": "Come to the Lumen Cafe where the lovely staff will provide space for ODL members to play Bridge and Scrabble. If you’d like to join in a game of Bridge, just bring two packs of playing cards , a pen and scrap paper. Scrabble boards will be provided. Beginners welcome. No need to book. Older members of the LGBT* community welcome.This event will take place every second and fourth Monday of the month. Simon Faulkner from Metro will be in to talk about the peer support group that meets monthly in Greenwich offering an opportunity for men to meet to share information about prostate cancer and discuss about their experiences and concerns. All older members of the LGBT* community welcome."
+    "description": "Simon Faulkner from Metro will be in to talk about the peer support group that meets monthly in Greenwich offering an opportunity for men to meet to share information about prostate cancer and discuss about their experiences and concerns. All older members of the LGBT* community  welcome."
   },
   {
-    "activityId": 19,
+    "activityId": 18,
     "centerId": 6,
     "centerName": "Opening Doors London",
     "street": "Kings Cross, London WC1H 9NA",
@@ -474,7 +275,7 @@
     "description": "We are setting up a monthly reading group. The first title will be ‘Headscarves & Hymens: Why the Middle East Needs a Sexual Revolution’ by Mona Eltahawy. We are reading first chapters 4 to 6 for the next meeting."
   },
   {
-    "activityId": 20,
+    "activityId": 19,
     "centerId": 6,
     "centerName": "Opening Doors London",
     "street": "Kings Cross, London WC1H 9NA",
@@ -496,13 +297,13 @@
     "endTime": "13:00",
     "duration": "3",
     "time": "10:00am - 01:00pm  ",
-    "description": "..."
+    "description": "Our LGBT friendly drop-in  session  provides you with an opportunity to receive IT assistance and guidance from knowledgeable volunteers and staff."
   },
   {
-    "activityId": 21,
+    "activityId": 20,
     "centerId": 7,
     "centerName": "Talacre Community Sports Centre",
-    "street": "Dalby St, London NW5 3ED, UK",
+    "street": "Dalby StreetLondon,NW3 3AFUnited Kingdom",
     "phone": 2079748765 ,
     "latLng": {
       "latitude": 51.5467676,
@@ -511,7 +312,7 @@
     "price": 4,
     "registration": "Join from start only",
     "courseType": "Session",
-    "category": "IT, LGBT*",
+    "category": "Daytime classes,Exercise and keep fit",
     "attendStatus": "Recuring",
     "attendDays": "Mon Fri",
     "dropin": "Drop-in accepted",
@@ -521,10 +322,10 @@
     "endTime": "15:00",
     "duration": "3",
     "time": "02:00pm - 03:00pm  ",
-    "description": "..."
+    "description": "One hour yoga session. £3.20 per session."
   },
   {
-    "activityId": 22,
+    "activityId": 21,
     "centerId": 8,
     "centerName": "North London Cares",
     "street": "Kings Cross, London NW1 2LS, UK",
@@ -546,10 +347,10 @@
     "endTime": "14:00",
     "duration": "3",
     "time": "11:00am - 02:00pm  ",
-    "description": "Whether you'r a budding chef or rely on microwave meals , this is the club for you! Learn a new recipe before enjoying the fruits of your labour ! Bus :C11 - stop: Chester Road Highgate Library or bus 4 - stop: CHester Road"
+    "description": "Whether you’re a budding chef  or rely on microwave meals, this is the club for you! Learn a new recipe before enjoying the fruits of your labour! Bus:  C11 –stop: Chester Road/ HighgateLibrary or bus 4 –stop: Chester Road "
   },
   {
-    "activityId": 23,
+    "activityId": 22,
     "centerId": 8,
     "centerName": "North London Cares",
     "street": "Kings Cross, London NW1 2LS, UK",
@@ -571,6 +372,6 @@
     "endTime": "20:45",
     "duration": "3",
     "time": "6:00pm - 08:45pm",
-    "description": "Sandiches, Chat and great movie at our reguar film night! Bus 393 - stop: North Road/Goodinge Heakth Center"
+    "description": "Sandwiches, chat and a great movie at our regular  film night! Bus 393 –stop: North Road/GoodingeHealth Centre"
   }
 ]

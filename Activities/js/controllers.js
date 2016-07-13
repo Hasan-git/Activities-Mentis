@@ -67,8 +67,12 @@ function login($scope, loginService, $location, currentUser, $state, $rootScope,
             $rootScope.globalName = data.name;
             //$state.go('inner.main_page');
           
+            console.log(angular.isUndefined($rootScope.tostate));
+            console.log($rootScope.tostate);
+            console.log($rootScope.tostateParams);
 
-            if ($rootScope.tostate == false) {
+
+            if ($rootScope.tostate === false || angular.isUndefined($rootScope.tostate)) {
                 $state.go('inner.q1');
                 
             } else {
@@ -136,9 +140,11 @@ function activitiesExposition($scope) {
 function centers($scope, resolvedcenters, $rootScope) {
 
    
+    
+
     $scope.sortType = 'latLng';
     $scope.sortReverse = false;
-
+    
     $scope.centers = resolvedcenters;
     $rootScope.centersz = resolvedcenters;
     $scope.s = function (center) {
@@ -233,7 +239,7 @@ function bookingEnrollment($scope, resolvedActivtyEnrollment,toaster) {
     toaster.pop('success', "Notification", "Activity booked successfully", 4000);
     $scope.enrolledActivity = resolvedActivtyEnrollment;
 }
-function map($scope, toaster, $stateParams, activitiesRepo) {
+function map($scope, toaster, $stateParams, activitiesRepo, centersRepo) {
     
     toaster.pop('wait', "Notification", "Getting locations ", 2000);
 
@@ -247,8 +253,8 @@ function map($scope, toaster, $stateParams, activitiesRepo) {
         longitude: "",
         formatted_address: "Adress"
     };
-    var selectedMode = "DRIVING";
-    $scope.travelMode = "DRIVING";
+    var selectedMode = "WALKING";
+    $scope.travelMode = "WALKING";
    
     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         
@@ -323,10 +329,17 @@ function map($scope, toaster, $stateParams, activitiesRepo) {
     }
 
     if ($stateParams.center) {
-        destinationLocation.latitude = $stateParams.center.latLng.latitude;
-        destinationLocation.longitude = $stateParams.center.latLng.longitude;
-        initMap();
         
+        
+
+        centersRepo.getCenter($stateParams.center.centerId).then(function (data) {
+           
+            destinationLocation.latitude = data.latLng.latitude;
+            destinationLocation.longitude = data.latLng.longitude;
+            destinationLocation.formatted_address = data.street;
+            initMap();
+        });
+
     } else if ($stateParams.activityId) {
         activitiesRepo.getActivity($stateParams.activityId).then(function (activity) {
             destinationLocation.latitude = activity.latLng.latitude;

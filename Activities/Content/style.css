@@ -94,7 +94,12 @@
     .panel-text-map {
         font-size: 1.1em!important;
     }
-}
+    .image-responsive {
+        object-fit: contain;
+        height: 70px;
+    }
+} /* Media for ipad and tab*/ 
+
 @media screen and (max-width: 765px) {
     .mainview {
      
@@ -107,7 +112,18 @@
     .xs-m-r-xs {
         margin-right: 5px;
     }
-}
+    .image-responsive {
+        object-fit: contain;
+        height:60px;
+    }
+    .font-i-xs {
+        font-size: 0.8em!important;
+    }
+    .font-i-xxs {
+            font-size: 0.65em!important;
+    }
+
+} /* Media for iphone and samsung*/
 
 .title {
     font-family: patua one;
@@ -130,6 +146,12 @@
     height: 93%;
     padding-bottom: 30px;
 }
+
+.text-j {
+        text-align: justify;
+}
+
+
 .uiview::-webkit-scrollbar {
     width: 0px;
 }

@@ -5,8 +5,8 @@ function centersRepo($localForage, $q, activitiesRepo) {
     {
         var deferred = $q.defer();
         var defaultLocation = {
-            latitude: 51.5181222,
-            longitude: -0.0727583
+            latitude: 51.525045,
+            longitude: -0.127938
         };
         var geocoder = new google.maps.Geocoder;
         //current Position
