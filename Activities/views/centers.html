@@ -16,57 +16,58 @@
                     </select>-->
                 </div>
                 <div class="col-xs-6 text-info hidden-sm-up" style="color: #424141!important;font-weight: 600;text-align: right;" ui-sref="inner.map_centers">
-                    <i class="fa fa-map-marker" style="color: black;" ></i>
+                    <i class="fa fa-map-marker" style="color: black;"></i>
                     <span>Map View</span>
                 </div>
             </div>
         </div>
 
-            <div class="col-xs-12 p-sides-none ">
-                <table class="col-xs-12 tableActivities m-t-sm">
-                    <tr ng-repeat="center in filteredCenters = ( centers | orderBy:sortType:sortReverse | filter:search:strict)" class="pointer">
-                        <td ui-sref="inner.centerDetails({center:center.centerId})" style="border-bottom: 1px solid #ccc; padding-bottom: 7px; padding-top: 7px;">
-                            <!--<div class="bs-callout bs-callout-danger">-->
-                            <div class="col-xs-3 p-sides-none">
-                                <div class="col-xs-12 p-sides-none">
-                                    <div>
-                                        <img src="{{center.logo}}" height="30px" width="40px" class=" col-xs-10 p-sides-none image-responsive" style="padding-left: 10px;">
-                                    </div>
+        <div class="col-xs-12 p-sides-none ">
+            <table class="col-xs-12 tableActivities m-t-sm">
+                <tr ng-repeat="center in filteredCenters = ( centers | orderBy:sortType:sortReverse | filter:search:strict)" class="pointer">
+                    <td ui-sref="inner.centerDetails({center:center.centerId})" style="border-bottom: 1px solid #ccc; padding-bottom: 7px; padding-top: 7px;">
+                        <!--<div class="bs-callout bs-callout-danger">-->
+                        <div class="col-xs-3 p-sides-none">
+                            <div class="col-xs-12 p-sides-none">
+                                <div>
+                                    <img src="{{center.logo}}" height="30px" width="40px" class=" col-xs-10 p-sides-none image-responsive" style="padding-left: 10px;">
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-xs-9 text-left p-sides-xs">
-                                <div class="col-xs-12 p-sides-none">
-                                    <div class="col-xs-10 p-sides-none">
-                                        <h5 style="margin: 0;">
-                                            <strong class="a_title2">{{center.centerName}}</strong>
-                                        </h5>
-                                    </div>
-                                    <div class="col-xs-10 p-sides-none font-md">
-                                          {{center.speciality}}
-                                    </div>
-                                    <div class="text-muted col-xs-12 p-sides-none">
-                                        <span style="font-weight: 600;">{{center.street}}</span>
-                                        <div class="p-sides-none pull-right">{{center.distance | fixDigit}} mi</div>
-                                    </div>
+                        <div class="col-xs-9 text-left p-sides-xs">
+                            <div class="col-xs-12 p-sides-none">
+                                <div class="col-xs-10 p-sides-none">
+                                    <h5 style="margin: 0;">
+                                        <strong class="a_title2">{{center.centerName}}</strong>
+                                    </h5>
                                 </div>
-                                <div class="text-muted col-xs-12 p-sides-none font-md">
-                                    <i class="fa fa-shopping-cart"></i>&nbsp;
-                                    <span style="font-weight: 500; color: #2F3237;">Activities: </span>
-                                      <span style="font-weight: 600; color: #2D2D2D">{{len(center)}}</span>
-                                    <div class="pull-right" style="font-weight: 600;"><i class="fa fa-phone"></i> {{center.phone}}
-                                    </div>
+                                <div class="col-xs-10 p-sides-none font-md">
+                                    {{center.speciality}}
+                                </div>
+                                <div class="text-muted col-xs-12 p-sides-none">
+                                    <span style="font-weight: 600;">{{center.street}}</span>
+                                    <div class="p-sides-none pull-right">{{center.distance | fixDigit}} mi</div>
                                 </div>
                             </div>
+                            <div class="text-muted col-xs-12 p-sides-none font-md">
+                                <i class="fa fa-shopping-cart"></i>&nbsp;
+                                <span style="font-weight: 500; color: #2F3237;">Activities: </span>
+                                <span style="font-weight: 600; color: #2D2D2D">{{len(center)}}</span>
+                                <div class="pull-right" style="font-weight: 600;">
+                                    <i class="fa fa-phone"></i> {{center.phone}}
+                                </div>
+                            </div>
+                        </div>
 
 
-                            <!-- </div>-->
-                            <div class="clearfix"></div>
-                        </td>
-                    </tr>
-                    <tr ng-show="!filteredCenters.length"><td style="padding-top: 15px;font-weight: 500;"><i class="fa fa-archive fa-lg" style="color: #757373;"></i> No Centers available !</td></tr>
-                </table>
-                <div class="clearfix"></div>
-            </div>
+                        <!-- </div>-->
+                        <div class="clearfix"></div>
+                    </td>
+                </tr>
+                <tr ng-show="!filteredCenters.length"><td style="padding-top: 15px;font-weight: 500;"><i class="fa fa-archive fa-lg" style="color: #757373;"></i> No Centers available !</td></tr>
+            </table>
+            <div class="clearfix"></div>
         </div>
+    </div>
 </div>

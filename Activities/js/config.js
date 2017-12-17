@@ -220,9 +220,7 @@ angular
 
             toaster.clear();
             $rootScope.previousState_name = from.name;
-            $rootScope.previousState_params = fromParams;
-
-            
+            $rootScope.previousState_params = fromParams;            
 
             if (to.name === "inner.main_page" || to.name === "inner.q1" ) {
                 $rootScope.showBack = false;
